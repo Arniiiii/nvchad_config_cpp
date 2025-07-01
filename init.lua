@@ -1,3 +1,6 @@
+vim.opt_local.relativenumber = true
+vim.opt_local.colorcolumn = '80'
+
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
 vim.g.mapleader = " "
 

@@ -90,22 +90,22 @@ local plugins = {
   {
     "hrsh7th/nvim-cmp",
     dependencies = { "saadparwaiz1/cmp_luasnip" },
-    config = require("configs.cmp"),
+    config = require "configs.cmp",
     lazy = false,
   },
-  { "hrsh7th/cmp-buffer",   lazy = false },
-  { "hrsh7th/cmp-path",     lazy = false },
-  { "hrsh7th/cmp-cmdline",  lazy = false },
+  { "hrsh7th/cmp-buffer", lazy = false },
+  { "hrsh7th/cmp-path", lazy = false },
+  { "hrsh7th/cmp-cmdline", lazy = false },
   { "hrsh7th/cmp-nvim-lua", lazy = false },
   {
     "olimorris/codecompanion.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
-      "hrsh7th/nvim-cmp",              -- Optional: For activating slash commands and variables in the chat buffer
+      "hrsh7th/nvim-cmp", -- Optional: For activating slash commands and variables in the chat buffer
       "nvim-telescope/telescope.nvim", -- Optional: For working with files with slash commands
       {
-        "stevearc/dressing.nvim",      -- Optional: Improves the default Neovim UI
+        "stevearc/dressing.nvim", -- Optional: Improves the default Neovim UI
         opts = {},
       },
     },
@@ -146,14 +146,14 @@ local plugins = {
     "nwiizo/cargo.nvim",
     build = "cargo build --release",
     config = function()
-      require("cargo").setup({
+      require("cargo").setup {
         float_window = true,
         window_width = 0.8,
         window_height = 0.8,
         border = "rounded",
         auto_close = true,
         close_timeout = 5000,
-      })
+      }
     end,
     ft = { "rust" },
     cmd = {
@@ -164,9 +164,26 @@ local plugins = {
       "CargoNew",
       "CargoRun",
       "CargoTest",
-      "CargoUpdate"
+      "CargoUpdate",
     },
     -- lazy = false,
+  },
+  {
+    "f-person/git-blame.nvim",
+    -- load the plugin at startup
+    event = "VeryLazy",
+    -- Because of the keys part, you will be lazy loading this plugin.
+    -- The plugin will only load once one of the keys is used.
+    -- If you want to load the plugin at startup, add something like event = "VeryLazy",
+    -- or lazy = false. One of both options will work.
+    opts = {
+      -- your configuration comes here
+      -- for example
+      enabled = true, -- if you want to enable the plugin
+      message_template = " <summary> • <date> • <author> • <<sha>>", -- template for the blame message, check the Message template section for more options
+      date_format = "%m-%d-%Y %H:%M:%S", -- template for the date, check Date format section for more options
+      virtual_text_column = 1, -- virtual text start column, check Start virtual text at column section for more options
+    },
   },
   -- { lua - utils.nvim },
   -- { nvim - nio },

@@ -23,6 +23,7 @@ local sources = {
 
   -- java
   b.formatting.tidy,
+
 }
 
 null_ls.setup {

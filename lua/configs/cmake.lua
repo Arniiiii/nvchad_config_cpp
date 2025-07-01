@@ -6,7 +6,7 @@ require("cmake-tools").setup {
     "-DCMAKE_EXPORT_COMPILE_COMMANDS=1",
     "-DFETCHCONTENT_QUIET=OFF",
     "--log-level DEBUG",
-    "-DCMAKE_TOOLCHAIN_FILE=~/apps/vcpkg/scripts/buildsystems/vcpkg.cmake",
+    -- "-DCMAKE_TOOLCHAIN_FILE=~/apps/vcpkg/scripts/buildsystems/vcpkg.cmake",
     "-DCPM_SOURCE_CACHE=~/.cache/cpm/",
     "-DCMAKE_BUILD_TYPE=Debug",
     "-DCMAKE_GENERATOR='Ninja'",
@@ -21,7 +21,7 @@ require("cmake-tools").setup {
   cmake_build_directory = "build/${kit}/${kitGenerator}/${variant:buildType}", -- this is used to specify generate directory for cmake, allows macro expansion, relative to vim.loop.cwd()
   cmake_soft_link_compile_commands = true, -- this will automatically make a soft link from compile commands file to project root dir
   cmake_compile_commands_from_lsp = false, -- this will automatically set compile commands file location using lsp, to use it, please set `cmake_soft_link_compile_commands` to false
-  cmake_kits_path = "~/.local/share/CMakeTools/cmake-tools-kits.json", -- this is used to specify global cmake kits path, see CMakeKits for detailed usage
+  cmake_kits_path = "~/.var/app/com.vscodium.codium/data/CMakeTools/cmake-tools-kits.json", -- this is used to specify global cmake kits path, see CMakeKits for detailed usage
   cmake_variants_message = {
     short = { show = true }, -- whether to show short message
     long = { show = true, max_length = 40 }, -- whether to show long message
