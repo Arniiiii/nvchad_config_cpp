@@ -6,12 +6,13 @@ require("cmake-tools").setup {
     "-DCMAKE_EXPORT_COMPILE_COMMANDS=1",
     "-DFETCHCONTENT_QUIET=OFF",
     "--log-level DEBUG",
-    "-DCMAKE_TOOLCHAIN_FILE=~/apps/vcpkg/scripts/buildsystems/vcpkg.cmake",
+    -- "-DCMAKE_TOOLCHAIN_FILE=~/apps/vcpkg/scripts/buildsystems/vcpkg.cmake",
     "-DCPM_SOURCE_CACHE=~/.cache/cpm/",
     "-DCMAKE_BUILD_TYPE=Debug",
     "-DCMAKE_GENERATOR='Ninja'",
     "-DCMAKE_CXX_FLAGS='-Wnrvo -Wpessimizing-move -pipe -march=native -ggdb3 -flto=auto -fdiagnostics-color=always -fdiagnostics-color'",
     "-DCMAKE_EXE_LINKER_FLAGS='-fuse-ld=mold -flto=auto'",
+    "-DCPM_LOCAL_PACKAGES_ONLY=1",
   }, -- this will be passed when invoke `CMakeGenerate`
   cmake_build_options = { "--parallel 24", "--verbose" }, -- this will be passed when invoke `CMakeBuild`
   -- support macro expansion:
@@ -147,7 +148,7 @@ dap.adapters.cmake = function(callback, config)
         "--debugger",
         "--debugger-pipe=${pipe}",
         tostring(cmake_tools.get_build_directory()),
-        table.concat(cmake_tools.get_generate_options(),' ')
+        table.concat(cmake_tools.get_generate_options(), " "),
       },
     },
   }
@@ -168,5 +169,23 @@ dap.configurations.cmake = {
     name = "Debug",
     request = "launch",
     program = "${file}",
+  },
+}
+
+local mason_registry = require "mason-registry"
+if not mason_registry.is_installed "codelldb" then
+  error "Codelldb is not installed. Type `:MasonInstallAll` or install manually by `:Mason` and the find `codelldb`. Also, you can go to your neovim config at lua/custom/configs/nvim-dap.lua and solve it yourself."
+end
+
+dap.adapters.codelldb = {
+  type = "server",
+  port = "${port}",
+  executable = {
+    -- CHANGE THIS to your path!
+    command = "codelldb", -- adjust as needed, must be absolute path
+    args = { "--port", "${port}" },
+
+    -- On windows you may have to uncomment this:
+    -- detached = false,
   },
 }

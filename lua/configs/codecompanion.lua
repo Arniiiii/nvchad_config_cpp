@@ -2,13 +2,13 @@ require("codecompanion").setup {
   adapters = {
     dolphin_mistral = function()
       return require("codecompanion.adapters").extend("ollama", {
-        name = "dolphin-mistral:latest", -- Give this adapter a different name to differentiate it from the default ollama adapter
+        name = "codellama:7b", -- Give this adapter a different name to differentiate it from the default ollama adapter
         schema = {
           model = {
-            default = "dolphin-mistral:latest",
+            default = "codellama:7b",
           },
           num_ctx = {
-            default = 32768,
+            default = 4096,
           },
           num_predict = {
             default = -1,

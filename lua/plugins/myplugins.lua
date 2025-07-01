@@ -27,7 +27,6 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = overrides.mason,
   },
-
   {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
@@ -70,6 +69,7 @@ local plugins = {
     config = function()
       require "configs.nvim-dap"
     end,
+    lazy = false,
   },
   {
     "rcarriga/nvim-dap-ui",
@@ -90,7 +90,7 @@ local plugins = {
   {
     "hrsh7th/nvim-cmp",
     dependencies = { "saadparwaiz1/cmp_luasnip" },
-    config = require("configs.cmp"),
+    config = require "configs.cmp",
     lazy = false,
   },
   { "hrsh7th/cmp-buffer", lazy = false },
@@ -141,6 +141,77 @@ local plugins = {
     -- version = "v2.3", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
     -- install jsregexp (optional!).
     build = "make install_jsregexp",
+  },
+  {
+    "huggingface/llm.nvim",
+    dependencies = {
+      "huggingface/llm-ls",
+    },
+    --   -- config = function()
+    --   --     -- local isOllamaRunning = require("plenary.curl").get("http://localhost:11434", {
+    --   --     --     timeout = 50,
+    --   --     --     on_error = function(e) return { status = e.exit } end,
+    --   --     -- }).status == 200
+    --   --
+    --   --     -- require("llm").setup({
+    --   --     --     enable_suggestions_on_startup = true,
+    --   --     --     -- enable_suggestions_on_files = {
+    --   --     --     --     -- disable suggestions in all Telescope windows by enabling only in:
+    --   --     --     --     "*.*", -- either has file extension
+    --   --     --     --     "*/zshrc.d/*", -- or in zshrc.d folder
+    --   --     --     -- },
+    --   --     --     -- lsp = {
+    --   --     --     --     -- cargo install --rev 16606e5371a1b0582543f03fd8a2666f7bf2580a --git https://github.com/huggingface/llm-ls llm-ls
+    --   --     --     --     bin_path = vim.fn.expand("~/.cargo/bin/llm-ls"),
+    --   --     --     -- },
+    --   --     --     -- tokens_to_clear = { "<EOT>" },
+    --   --     --     -- fim = {
+    --   --     --     --     enabled = true,
+    --   --     --     --     prefix = "<PRE> ",
+    --   --     --     --     middle = " <MID>",
+    --   --     --     --     suffix = " <SUF>",
+    --   --     --     -- },
+    --   --     --     model = 'deepseek-coder:6.7b',
+    --   --     --     url = "http://localhost:11434/api/generate",
+    --   --     --     context_window = 4096,
+    --   --     --     -- tokenizer = {
+    --   --     --     --     repository = "codellama/CodeLlama-7b-hf",
+    --   --     --     -- },
+    --   --     --     backend = "ollama",
+    --   --     --     request_body = {
+    --   --     --         model = "deepseek-coder:7b-code",
+    --   --     --     },
+    --   --     --     query_params = {
+    --   --     --         -- maxNewTokens = 60,
+    --   --     --         temperature = 0.2,
+    --   --     --         -- doSample = true,
+    --   --     --         -- topP = 0.95,
+    --   --     --     },
+    --   --     --     accept_keymap = "<S-Down>",
+    --   --     --     dismiss_keymap = "<S-Up>",
+    --   --     --     lsp = {
+    --   --     --       bin_path = vim.api.nvim_call_function("stdpath", { "data" }) .. "/mason/bin/llm-ls",
+    --   --     --     },
+    --   --     -- })
+    --   -- end,
+    opts = {
+      enable_suggestions_on_startup = false,
+      backend = "ollama",
+      model = "codellama:7b",
+      url = "http://localhost:11434", -- llm-ls uses "/api/generate"
+      -- cf https://github.com/ollama/ollama/blob/main/docs/api.md#parameters
+      request_body = {
+        -- Modelfile options for the model you use
+        options = {
+          temperature = 0.2,
+          top_p = 0.95,
+        },
+      },
+
+      accept_keymap = "<S-Up>",
+      dismiss_keymap = "<S-Down>",
+    },
+    lazy = false,
   },
 
   -- { lua - utils.nvim },
