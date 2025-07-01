@@ -230,4 +230,4 @@ vim.api.nvim_set_keymap("n", "<M-k>", "<cmd>cprev<cr>zz", { desc = "Quickfix nex
 vim.api.nvim_set_keymap("n", "<leader>j", "<cmd>cnext<cr>", { desc = "Quickfix next without zz" , noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>k", "<cmd>cprev<cr>", { desc = "Quickfix next without zz" , noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>co", "<cmd>copen<cr>", { desc = "Quickfix open" , noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>cc", "<cmd>copen<cr>", { desc = "Quickfix open" , noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>cc", "<cmd>cclose<cr>", { desc = "Quickfix close" , noremap = true, silent = true })
