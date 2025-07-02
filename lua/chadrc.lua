@@ -5,8 +5,8 @@ local M = {}
 local highlights = require "highlights"
 
 M.base46 = {
-  theme = "one_light",
-  theme_toggle = { "one_light", "chadracula-evondev" },
+  theme = "oceanic-light",
+  theme_toggle = { "oceanic-light", "mito-laser" },
   -- transparency = true,
   hl_override = highlights.override,
   hl_add = highlights.add,
