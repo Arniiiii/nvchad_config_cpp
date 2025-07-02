@@ -217,10 +217,6 @@ vim.api.nvim_set_keymap("n", "<leader>a", "<cmd>CodeCompanionToggle<cr>", { desc
 vim.api.nvim_set_keymap("v", "<leader>a", "<cmd>CodeCompanionToggle<cr>", { desc = "CodeCompanion Open a LLM buffer", noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "ga", "<cmd>CodeCompanionAdd<cr>", { desc = "CodeCompanion maybe save a chat with a LLM",noremap = true, silent = true })
 
--- Expand 'cc' into 'CodeCompanion' in the command line
-vim.cmd [[cab cc CodeCompanion]]
-
-
 vim.keymap.set("n", "<leader>tt",function() require("base46").toggle_theme() end, { desc = "Base46 Toggle theme" , noremap = true, silent = true })
 vim.keymap.set("n", "<leader>tT",function() require("base46").toggle_transparency() end, { desc = "Base46 Toggle transparency" , noremap = true, silent = true })
 
