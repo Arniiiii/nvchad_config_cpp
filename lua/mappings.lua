@@ -229,6 +229,8 @@ vim.api.nvim_set_keymap("n", "<leader>co", "<cmd>copen<cr>", { desc = "Quickfix 
 vim.api.nvim_set_keymap("n", "<leader>cc", "<cmd>cclose<cr>", { desc = "Quickfix close" , noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>cp", "<cmd>colder<cr>", { desc = "Quickfix previous list (colder)" , noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>cn", "<cmd>cnewer<cr>", { desc = "Quickfix next list (cnewer)" , noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>cg", "<cmd>cfirst<cr>", { desc = "Quickfix first in list (cfirst)" , noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>cG", "<cmd>clast<cr>", { desc = "Quickfix last in list (clast)" , noremap = true, silent = true })
 
 vim.api.nvim_set_keymap("n", "<M-.>", "<cmd>lnext<cr>zz", { desc = "Location list next" , noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<M-,>", "<cmd>lprev<cr>zz", { desc = "Location list next" , noremap = true, silent = true })
@@ -238,3 +240,5 @@ vim.api.nvim_set_keymap("n", "<leader>lo", "<cmd>lopen<cr>", { desc = "Location 
 vim.api.nvim_set_keymap("n", "<leader>lc", "<cmd>lclose<cr>", { desc = "Location list close" , noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>lp", "<cmd>lolder<cr>", { desc = "Location list previous list (lolder)" , noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>ln", "<cmd>lnewer<cr>", { desc = "Location list next list (lnewer)" , noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>lg", "<cmd>lfirst<cr>", { desc = "Location list first in list (lfirst)" , noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>lG", "<cmd>llast<cr>", { desc = "Quickfix last in list (llast)" , noremap = true, silent = true })
