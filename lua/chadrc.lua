@@ -5,11 +5,30 @@ local M = {}
 local highlights = require "highlights"
 
 M.base46 = {
-  theme = "oceanic-light",
-  theme_toggle = { "oceanic-light", "mito-laser" },
+  theme = "mito-laser",
+  theme_toggle = { "vscode_light", "mito-laser" },
   -- transparency = true,
   hl_override = highlights.override,
   hl_add = highlights.add,
+}
+
+M.ui = {
+  statusline = {
+    theme = "default",
+    separator_style = "block",
+    order = { "mode", "myfile", "git", "%=", "lsp_msg", "%=", "lsp", "cwd" },
+    modules = {
+      -- abc = function()
+      --   return "hi"
+      -- end,
+
+      -- xyz = "hi",
+      myfile = function()
+        local x = "%F"
+        return "%#St_file# " .. x .. " "
+      end,
+    },
+  },
 }
 
 -- M.plugins = "plugins"
