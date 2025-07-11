@@ -520,9 +520,38 @@ vim.api.nvim_set_keymap(
 
 vim.api.nvim_set_keymap(
    "n",
-   "<leader>tn",
-   "<cmd>tabNext<cr>",
+   "<leader>TN",
+   "<cmd>tabnew<cr>",
+   { desc = "Tabs new (tabnew)", noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap(
+   "n",
+   "<leader>Tn",
+   "<cmd>tabnext<cr>",
    { desc = "Tabs next (tabnext)", noremap = true, silent = true }
 )
-
+vim.api.nvim_set_keymap(
+   "n",
+   "<leader>Tp",
+   "<cmd>tabprevious<cr>",
+   { desc = "Tabs previous (tabprevious)", noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap(
+   "n",
+   "<leader>Tc",
+   "<cmd>tabclose<cr>",
+   { desc = "Tabs close (tabclose)", noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap(
+   "n",
+   "<leader>Tg",
+   "<cmd>tabrewind<cr>",
+   { desc = "Tabs first tab (tabrewind)", noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap(
+   "n",
+   "<leader>TG",
+   "<cmd>tablast<cr>",
+   { desc = "Tabs last tab (tablast)", noremap = true, silent = true }
+)
 
