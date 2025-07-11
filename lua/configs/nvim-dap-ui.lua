@@ -1,16 +1,16 @@
-local dapui,dap = require "dapui", require "dap"
+local dapui, dap = require "dapui", require "dap"
 
 dapui.setup()
 
 dap.listeners.before.attach.dapui_config = function()
-  dapui.open()
+   dapui.open()
 end
 dap.listeners.before.launch.dapui_config = function()
-  dapui.open()
+   dapui.open()
 end
 dap.listeners.before.event_terminated.dapui_config = function()
-  dapui.close()
+   dapui.close()
 end
 dap.listeners.before.event_exited.dapui_config = function()
-  dapui.close()
+   dapui.close()
 end

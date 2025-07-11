@@ -1,93 +1,93 @@
 local M = {}
 
 M.treesitter = {
-  ensure_installed = {
-    "vim",
-    "lua",
-    "html",
-    "css",
-    "javascript",
-    "typescript",
-    "tsx",
-    "c",
-    "cpp",
-    "markdown",
-    "markdown_inline",
-    "yaml",
-    "python",
-  },
-  indent = {
-    enable = true,
-    -- disable = {
-    --   "python"
-    -- },
-  },
+   ensure_installed = {
+      "vim",
+      "lua",
+      "html",
+      "css",
+      "javascript",
+      "typescript",
+      "tsx",
+      "c",
+      "cpp",
+      "markdown",
+      "markdown_inline",
+      "yaml",
+      "python",
+   },
+   indent = {
+      enable = true,
+      -- disable = {
+      --   "python"
+      -- },
+   },
 }
 
 M.mason = {
-  pkgs = {
-    -- lua stuff
-    "lua-language-server",
-    "stylua",
+   pkgs = {
+      -- lua stuff
+      "lua-language-server",
+      "stylua",
 
-    -- web dev stuff
-    "css-lsp",
-    "html-lsp",
-    "typescript-language-server",
-    "deno",
-    "prettier",
+      -- web dev stuff
+      "css-lsp",
+      "html-lsp",
+      "typescript-language-server",
+      "deno",
+      "prettier",
 
-    -- c/cpp stuff
-    "clangd",
-    "clang-format",
+      -- c/cpp stuff
+      "clangd",
+      "clang-format",
 
-    -- cmake stuff
-    "cmakelint",
-    "cmakelang",
-    "neocmakelsp",
+      -- cmake stuff
+      "cmakelint",
+      "cmakelang",
+      "neocmakelsp",
 
-    -- python stuff
-    -- "python-lsp-server",
-    "pyright",
-    "yapf",
+      -- python stuff
+      -- "python-lsp-server",
+      "pyright",
+      "yapf",
 
-    -- yaml stuff
-    "yamlfmt",
-    "yamllint",
-    "yaml-language-server",
+      -- yaml stuff
+      "yamlfmt",
+      "yamllint",
+      "yaml-language-server",
 
-    -- json stuff
-    "json-lsp",
-    "jsonlint",
+      -- json stuff
+      "json-lsp",
+      "jsonlint",
 
-    -- debugging
-    "codelldb", -- c/c++/rust
-    "debugpy",  -- python
+      -- debugging
+      "codelldb", -- c/c++/rust
+      "debugpy", -- python
 
-    -- java
-    "jdtls",
-    "java-debug-adapter",
-  },
+      -- java
+      "jdtls",
+      "java-debug-adapter",
+   },
 }
 
 -- git support in nvimtree
 M.nvimtree = {
-  git = {
-    enable = true,
-  },
-  filters = {
-    git_ignored = false,
-    dotfiles = false,
-  },
+   git = {
+      enable = true,
+   },
+   filters = {
+      git_ignored = false,
+      dotfiles = false,
+   },
 
-  renderer = {
-    highlight_git = true,
-    icons = {
-      show = {
-        git = true,
+   renderer = {
+      highlight_git = true,
+      icons = {
+         show = {
+            git = true,
+         },
       },
-    },
-  },
+   },
 }
 
 return M

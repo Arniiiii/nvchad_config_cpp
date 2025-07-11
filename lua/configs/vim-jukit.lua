@@ -1,4 +1,4 @@
-vim.cmd([[
+vim.cmd [[
 let g:jukit_shell_cmd = 'ipython3'
 "    - Specifies the command used to start a shell in the output split. Can also be an absolute path. Can also be any other shell command, e.g. `R`, `julia`, etc. (note that output saving is only possible for ipython)
 let g:jukit_terminal = 'kitty'
@@ -23,4 +23,4 @@ let g:jukit_file_encodings = 'utf-8'
 "   - Default encoding for reading and writing to files in the python helper functions
 let g:jukit_venv_in_output_hist = 1
 "   - Whether to also use the provided terminal command for the output history split when starting the splits using the JukitOUtHist command. If 0, the provided terminal command is only used in the output split, not in the output history split.
-]])
+]]
