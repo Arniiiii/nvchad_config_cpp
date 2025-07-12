@@ -1,6 +1,3 @@
-vim.opt_local.relativenumber = true
-vim.opt_local.colorcolumn = "80"
-
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
 vim.g.mapleader = " "
 
@@ -48,3 +45,29 @@ vim.schedule(function()
    require "mappings"
 end)
 require "myinit"
+
+
+
+vim.opt.wildignore:append({"target/**","build*/**","\\.git/**"})
+
+vim.opt.relativenumber = true
+vim.opt.colorcolumn = "80"
+
+vim.opt.cursorline = true                          -- Highlight current line
+
+vim.opt.tabstop = 3                                -- Tab width
+vim.opt.shiftwidth = 3                             -- Indent width
+vim.opt.softtabstop = 3                            -- Soft tab stop
+vim.opt.expandtab = true                           -- Use spaces instead of tabs
+vim.opt.smartindent = true                         -- Smart auto-indenting
+vim.opt.autoindent = true                          -- Copy indent from current line
+
+-- Search settings
+vim.opt.ignorecase = true                          -- Case insensitive search
+vim.opt.smartcase = true                           -- Case sensitive if uppercase in search
+-- vim.opt.hlsearch = false                           -- Don't highlight search results 
+vim.opt.incsearch = true                           -- Show matches as you type
+
+vim.opt.encoding = "UTF-8"                         -- Set encoding
+-- Cursor settings
+vim.opt.guicursor = "n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
