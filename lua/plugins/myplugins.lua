@@ -6,6 +6,7 @@ local plugins = {
    -- Override plugin definition options
 
    {
+      lazy = false,
       "neovim/nvim-lspconfig",
       dependencies = {
          -- format & linting
