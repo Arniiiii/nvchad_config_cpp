@@ -43,13 +43,6 @@ vim.api.nvim_create_autocmd("FileType", {
 
       require "compiler/fbs"
 
-      -- Define buffer-local mappings for this filetype
-      vim.keymap.set(
-         "n",
-         "<leader>mm",
-         ":make<CR>",
-         { buffer = args.buf, desc = "Compile current file" }
-      )
    end,
    desc = "Apply settings for fbs files",
 })

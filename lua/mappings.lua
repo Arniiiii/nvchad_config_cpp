@@ -48,16 +48,11 @@ end, { desc = "dap Go up in current stacktrace without stepping" })
 vim.keymap.set("n", "<leader>td", function()
    require("dap").down()
 end, { desc = "dap Go down in current stacktrace without stepping" })
-vim.keymap.set(
-   "n",
-   "<leader>rc",
-   function()
-      require("dap").reverse_continue()
-   end,
-   {
-      desc = "dap Reverse continue. Debugger & debug adapter have to support it",
-   }
-)
+vim.keymap.set("n", "<leader>rc", function()
+   require("dap").reverse_continue()
+end, {
+   desc = "dap Reverse continue. Debugger & debug adapter have to support it",
+})
 vim.keymap.set("n", "<F5>", function()
    require("dap").continue()
 end, { desc = "dap Continue" })
@@ -555,3 +550,10 @@ vim.api.nvim_set_keymap(
    { desc = "Tabs last tab (tablast)", noremap = true, silent = true }
 )
 
+-- Define buffer-local mappings for this filetype
+vim.keymap.set(
+   "n",
+   "<leader>mm",
+   ":make ",
+   { desc = "Compile current file", noremap = true }
+)
