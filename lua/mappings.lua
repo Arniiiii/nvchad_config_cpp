@@ -100,14 +100,14 @@ end, { desc = "dapui hover?" })
 vim.keymap.set({ "n", "v" }, "<leader>dp", function()
    require("dap.ui.widgets").preview()
 end, { desc = "dapui preview?" })
-vim.keymap.set("n", "<leader>df", function()
-   local widgets = require "dap.ui.widgets"
-   widgets.centered_float(widgets.frames)
-end, { desc = "dapui widgets frame float ?" })
-vim.keymap.set("n", "<leader>ds", function()
-   local widgets = require "dap.ui.widgets"
-   widgets.centered_float(widgets.scopes)
-end, { desc = "dapui widgets scopes float ?" })
+-- vim.keymap.set("n", "<leader>df", function()
+--    local widgets = require "dap.ui.widgets"
+--    widgets.centered_float(widgets.frames)
+-- end, { desc = "dapui widgets frame float ?" })
+-- vim.keymap.set("n", "<leader>ds", function()
+--    local widgets = require "dap.ui.widgets"
+--    widgets.centered_float(widgets.scopes)
+-- end, { desc = "dapui widgets scopes float ?" })
 
 vim.keymap.set(
    "n",
