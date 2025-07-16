@@ -1,6 +1,7 @@
 --recurse=yes
 --exclude=.git
---exclude=build*/*
+--exclude=build/*
+--exclude=target/*
 --exclude=.svn
 --exclude=\*.js
 --exclude=vendor/*
