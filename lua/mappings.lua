@@ -464,7 +464,7 @@ vim.api.nvim_set_keymap(
    "n",
    "<M-,>",
    "<cmd>lprev<cr>zz",
-   { desc = "Location_list next", noremap = true, silent = true }
+   { desc = "Location_list previous", noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
    "n",
@@ -556,4 +556,24 @@ vim.keymap.set(
    "<leader>mm",
    ":make ",
    { desc = "Compile current file", noremap = true }
+)
+
+
+vim.api.nvim_set_keymap(
+   "n",
+   "<M-]>",
+   "<cmd>tnext<cr>zz",
+   { desc = "Ctags next", noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap(
+   "n",
+   "<M-[>",
+   "<cmd>tprev<cr>zz",
+   { desc = "Ctags previous", noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap(
+   "n",
+   "<leader>lt",
+   "<cmd>execute 'ltag ' . expand('<cword>') | lopen<cr>",
+   { desc = "Ctags show matching tags in a location list", noremap = true, silent = true }
 )

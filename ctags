@@ -18,4 +18,8 @@
 --exclude=\*.csproj.user
 --exclude=\*.cache
 --exclude=\*.dll
+--exclude=\*.so
+--exclude=\*.a
+--exclude=\*.o
+--exclude=\*.rlib
 --exclude=\*.pdb
