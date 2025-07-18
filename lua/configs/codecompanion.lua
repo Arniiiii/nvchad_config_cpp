@@ -19,13 +19,16 @@ require("codecompanion").setup {
    },
    strategies = {
       chat = {
-         adapter = "dolphin_mistral",
+         adapter = "gemini",
+         model = "gemini-2.5-pro"
       },
       inline = {
-         adapter = "dolphin_mistral",
+         adapter = "gemini",
+         model = "gemini-2.5-pro"
       },
       agent = {
-         adapter = "dolphin_mistral",
+         adapter = "gemini",
+         model = "gemini-2.5-pro"
       },
    },
    opts = {
