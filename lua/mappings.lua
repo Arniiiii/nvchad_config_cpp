@@ -476,7 +476,7 @@ vim.api.nvim_set_keymap(
    "n",
    "<leader>,",
    "<cmd>lprev<cr>",
-   { desc = "Location_list next without zz", noremap = true, silent = true }
+   { desc = "Location_list previous without zz", noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
    "n",
