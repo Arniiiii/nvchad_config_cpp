@@ -277,6 +277,10 @@ map({ "n", "t" }, "<A-v>", function()
    require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm", size = 0.6 }
 end, { desc = "terminal toggleable vertical term" })
 
+map({ "n", "t" }, "<A-t>", function()
+   require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm", size = 0 }
+end, { desc = "terminal toggleable vertical term full-size" })
+
 map({ "n", "t" }, "<A-h>", function()
    require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm", size = 0.6 }
 end, { desc = "terminal toggleable horizontal term" })
