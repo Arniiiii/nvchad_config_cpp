@@ -18,6 +18,8 @@ map("i", "<C-l>", "<Right>", { desc = "move right" })
 map("i", "<C-j>", "<Down>", { desc = "move down" })
 map("i", "<C-k>", "<Up>", { desc = "move up" })
 
+map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
+
 map("n", "<A-q>", function()
    require("nvchad.tabufline").next()
 end, { desc = "buffer goto next" })
