@@ -29,10 +29,11 @@ In general, it's great to use.
 
 ## TODO
 - [ ] Figure out a way of using Large language model.
-    - [x] Setupped [olimorris/codecompanion.nvim](https://github.com/olimorris/codecompanion.nvim) for `ollama` with dolphin-mistral:latest
+    - [x] Setupped [olimorris/codecompanion.nvim](https://github.com/olimorris/codecompanion.nvim) ~~for `ollama` with dolphin-mistral:latest~~ now gemini because it has free tier.
         - [x] chat
         - [x] inline-prompts
         - [ ] autocomplete?
+        - [ ] fucked up logic for mappings. How do they work? How to override them?
 - [ ] Find a good solution for .ipynb files.
     - [ ] [goerz/jupytext.vim](https://github.com/goerz/jupytext.vim) only editing, not executing. Though, amazing, needs jupytext installed
     - [ ] [dccsillag/magma-nvim](https//github.com/dccsillag/magma-nvim) seems to be about executing `*.py` scripts using jupyter. Not about executing ipynb.
@@ -59,19 +60,25 @@ In general, it's great to use.
     - [x] where's python debugger?
         - [x] added debugpy through mason and copy pasted config for it with slight changes
         - [x] toggle breakpoint, `<F5>`, wooalla 
+    - [ ] some floating window keymap I have but there's no way to close them? wtf
+- [ ] findout how to make some command like `:make nextest r` async
+    - [ ] via overseer plugin?
 - [ ] More keybindigs for some plugins
     - [x] dap related
     - [ ] telescope related
     - [ ] gitsigns related
+- [ ] somehow get used to `vim-fugitive`
+    - [ ] investigate how to use it with `lazygit` better.
 - [x] tmux navigator. Added keybindings for it. Ctrl+hjkl for navigating + tmux integration!!!
 - [x] added CodeCompanion plugin. Do you have ollama installed? Do you have a self-deployed AI ? This plugin is for you
     - [x] check next stuff to specify what model to use, if it's self-deployed: [here](https://github.com/olimorris/codecompanion.nvim/pull/45#issuecomment-2054028057)
     - [ ] still no shortcuts. `:CodeCompanion` will give you options to use.
 - [ ] Find out if there's a way to turn on less plugin not lazily. Investigation
-    - [ ] `ft` for some plugins works, for some not, idk why0
+    - [ ] `ft` for some plugins works, for some not, idk why
 - [x] Added [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify). Good looking plugin.
 - [x] Find a plugin for cool command palette
     - [x] cmp works just fine
+        - [x] fixed auto selecting just by adding in compeleopt [`noselect`](https://neovim.io/doc/user/options.html#'completeopt')
     - [ ] [hachy/cmdpalette.nvim](https://github.com/hachy/cmdpalette.nvim) doesn't support ranges and feels not so good  
     - [ ] (previously used in the config, replaced by cmp.) [gelguy/wilder.nvim](https://github.com/gelguy/wilder.nvim) seems to be a little bit unmaintained  ([my pain at installing it](https://github.com/gelguy/wilder.nvim/issues/196)). UPD: it's still is too buggy, and most important: it's slow. It's using python behind in sync way and on my pc it feels so badly sometimes... Maybe this plugin should be rewritten to lua or C/C++/Rust/Go/whatever_language ?
         - [ ] has some problems with config portability?
@@ -82,4 +89,8 @@ In general, it's great to use.
 - [ ] Allow more diversity of folder structures for include-guard plugin. Now only works if there's `src` in a path to a file. 
     - [ ] Rewrite plugin to lua and use neovim's API?
     - [x] Actually there's a snippet `#guard`.
-
+- [ ] Use `ug` everywhere:
+    - [ ] in telescope
+    - [ ] in `:grep`
+- [ ] LaTeX... I need to practice...
+    - [x] installed vimtex... now I should learn some latex for real...
