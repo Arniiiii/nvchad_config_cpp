@@ -48,7 +48,7 @@ require "myinit"
 
 
 
-vim.opt.wildignore:append({"target/**","build*/**","\\.git/**"})
+vim.opt.wildignore:append({"target/**","build*/**","\\.git/**","tags"})
 
 vim.opt.relativenumber = true
 vim.opt.colorcolumn = "80"
