@@ -207,7 +207,7 @@ map(
 
 map(
    "n",
-   "<leader>tg",
+   "<leader>ts",
    "<cmd>Telescope live_grep<CR>",
    { desc = "telescope live grep" }
 )
