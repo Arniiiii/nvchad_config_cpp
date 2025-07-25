@@ -172,6 +172,14 @@ map(
    ":Telescope commands<CR>",
    { desc = "Telescope commands" }
 )
+
+map(
+   "n",
+   "<leader>tt",
+   ":Telescope<CR>",
+   { desc = "Telescope telescope" }
+)
+
 map(
    "n",
    "<leader>tch",
@@ -211,7 +219,7 @@ map(
 )
 map(
    "n",
-   "<leader>tt",
+   "<leader>tht",
    "<cmd>Telescope help_tags<CR>",
    { desc = "telescope help page" }
 )
