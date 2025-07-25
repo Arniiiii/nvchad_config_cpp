@@ -9,6 +9,7 @@ local map = vim.keymap.set
 
 -- map("n","<C-'>", "<C-i>",{desc="general next in jumplist (tmux workaround)"})
 -- tabufline
+
 map("n", "<leader>b", "<cmd>enew<CR>", { desc = "buffer new" })
 
 map("i", "<C-b>", "<ESC>^i", { desc = "move beginning of line" })
@@ -273,15 +274,15 @@ map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 
 -- toggleable
 map({ "n", "t" }, "<A-v>", function()
-   require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm", size = 20 }
+   require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm", size = 0.6 }
 end, { desc = "terminal toggleable vertical term" })
 
 map({ "n", "t" }, "<A-h>", function()
-   require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm", size = 20 }
+   require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm", size = 0.6 }
 end, { desc = "terminal toggleable horizontal term" })
 
 map({ "n", "t" }, "<A-i>", function()
-   require("nvchad.term").toggle { pos = "float", id = "floatTerm", size = 20 }
+   require("nvchad.term").toggle { pos = "float", id = "floatTerm", size = 0.6 }
 end, { desc = "terminal toggle floating term" })
 
 -- whichkey
