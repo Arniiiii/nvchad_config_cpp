@@ -34,6 +34,8 @@ In general, it's great to use.
         - [x] inline-prompts
         - [ ] autocomplete?
         - [ ] fucked up logic for mappings. How do they work? How to override them?
+        - [ ] how to select multiple buffer/files in one telescope selection?
+        - [ ] how to stay in insert mode after selection?
 - [ ] Find a good solution for .ipynb files.
     - [ ] [goerz/jupytext.vim](https://github.com/goerz/jupytext.vim) only editing, not executing. Though, amazing, needs jupytext installed
     - [ ] [dccsillag/magma-nvim](https//github.com/dccsillag/magma-nvim) seems to be about executing `*.py` scripts using jupyter. Not about executing ipynb.
@@ -61,6 +63,7 @@ In general, it's great to use.
         - [x] added debugpy through mason and copy pasted config for it with slight changes
         - [x] toggle breakpoint, `<F5>`, wooalla 
     - [ ] some floating window keymap I have but there's no way to close them? wtf
+    - [ ] how to make the mappings for dap-mode only?
 - [ ] findout how to make some command like `:make nextest r` async
     - [ ] via overseer plugin?
 - [ ] More keybindigs for some plugins
@@ -86,7 +89,8 @@ In general, it's great to use.
     - [ ] [mrjones2014/legendary.nvim](https://github.com/mrjones2014/legendary.nvim) seems to *not* have ability to somehow get commands from everywhere like `:Telescope commands` , though looks cool. Doesn't support ranges. 
 - [ ] Find out how to put more snippets and put them from somewhere. Investigation.
 - [ ] Find a good alternative to `:s`. 
-- [ ] Allow more diversity of folder structures for include-guard plugin. Now only works if there's `src` in a path to a file. 
+    - [ ] should I?
+- [x] Allow more diversity of folder structures for include-guard plugin. Now only works if there's `src` in a path to a file. 
     - [ ] Rewrite plugin to lua and use neovim's API?
     - [x] Actually there's a snippet `#guard`.
 - [ ] Use `ug` everywhere:
@@ -94,3 +98,4 @@ In general, it's great to use.
     - [ ] in `:grep`
 - [ ] LaTeX... I need to practice...
     - [x] installed vimtex... now I should learn some latex for real...
+- [ ] Add `errorformat` for `rs` filetype for results of tracing that I have
