@@ -2,6 +2,14 @@
 
 local map = vim.keymap.set
 
+local function get_selection()
+   -- does not handle rectangular selection
+   local s_start = vim.fn.getpos "."
+   local s_end = vim.fn.getpos "v"
+   local lines = vim.fn.getregion(s_start, s_end)
+   return lines
+end
+
 -- Disable mappings
 -- local nomap = vim.keymap.del
 
@@ -9,6 +17,74 @@ local map = vim.keymap.set
 
 -- map("n","<C-'>", "<C-i>",{desc="general next in jumplist (tmux workaround)"})
 -- tabufline
+
+map(
+   "v",
+   "g/",
+   "y/\\V<C-R>=escape(@\",'/')<CR><CR>",
+   { desc = "search selected in current buffer" }
+)
+map("x", "<leader>/", function()
+   local selection = get_selection()
+   local text = vim.fn.escape(selection[1], [[\/]])
+   for i = 2, #selection do
+      text = text .. "\\n" .. vim.fn.escape(selection[i], [[\/]])
+   end
+   vim.cmd.lgrep(text)
+   local win = vim.api.nvim_get_current_win()
+   vim.cmd.lopen()
+   vim.api.nvim_set_current_win(win)
+end, {
+   desc = "search selected text everywhere in current folder",
+   silent = false,
+})
+
+map("x", "<leader>s", function()
+   local selection = get_selection()
+   local text = vim.fn.escape(selection[1], [[\/"]])
+   for i = 2, #selection do
+      text = text .. "\\n" .. vim.fn.escape(selection[i], [[\/"]])
+   end
+   local clear_selection =
+      vim.api.nvim_replace_termcodes("<C-u>", true, false, true)
+   local double_left =
+      vim.api.nvim_replace_termcodes("<Left><Left>", true, false, true)
+   local keys_to_feed = ":"
+      .. clear_selection
+      .. "%s/"
+      .. text
+      .. "//g"
+      .. double_left
+   vim.fn.feedkeys(keys_to_feed)
+end, {
+   desc = "substitute all occurance of selected text with ...",
+})
+
+map("x", "<leader>S", function()
+   local selection = get_selection()
+   local text = vim.fn.escape(selection[1], [[\/"]])
+   for i = 2, #selection do
+      text = text .. "\\n" .. vim.fn.escape(selection[i], [[\/"]])
+   end
+
+   vim.cmd("silent lgrep " .. text)
+
+   local win = vim.api.nvim_get_current_win()
+   vim.cmd.lopen()
+   vim.api.nvim_set_current_win(win)
+
+   local clear_selection =
+      vim.api.nvim_replace_termcodes("<C-u>", true, false, true)
+   local double_left =
+      vim.api.nvim_replace_termcodes("<Left><Left>", true, false, true)
+   local keys_to_feed = ":"
+      .. clear_selection
+      .. "ldo s/"
+      .. text
+      .. "//g"
+      .. double_left
+   vim.fn.feedkeys(keys_to_feed)
+end, { desc = "substitute all occurance in current folder" })
 
 map("n", "<leader>b", "<cmd>enew<CR>", { desc = "buffer new" })
 
@@ -56,8 +132,8 @@ map(
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "general save file" })
 map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "general copy whole file" })
 
-map("v", ">", ">gv", { desc = "general indent" })
-map("v", "<", "<gv", { desc = "general backdent" })
+-- map("v", ">", ">gv", { desc = "general indent" })
+-- map("v", "<", "<gv", { desc = "general backdent" })
 
 map(
    "n",
@@ -173,12 +249,7 @@ map(
    { desc = "Telescope commands" }
 )
 
-map(
-   "n",
-   "<leader>tt",
-   ":Telescope<CR>",
-   { desc = "Telescope telescope" }
-)
+map("n", "<leader>tt", ":Telescope<CR>", { desc = "Telescope telescope" })
 
 map(
    "n",
@@ -186,10 +257,6 @@ map(
    ":Telescope command_history<CR>",
    { desc = "Telescope command history" }
 )
-
--- Comment
-map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
-map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
 
 -- nvimtree
 map(
@@ -496,29 +563,29 @@ map("n", "<leader>Ls", ":LspStart <CR>", { desc = "LSP start LSP" })
 map("n", "<leader>LS", ":LspStop <CR>", { desc = "LSP stop LSP" })
 -- more keybinds!
 
-vim.api.nvim_set_keymap("n", "<C-g>", "<cmd>CodeCompanionActions<cr>", {
+map("n", "<C-g>", "<cmd>CodeCompanionActions<cr>", {
    desc = "CodeCompanion Open an LLM involvement menu",
    noremap = true,
    silent = true,
 })
-vim.api.nvim_set_keymap("v", "<C-g>", "<cmd>CodeCompanionActions<cr>", {
+map("v", "<C-g>", "<cmd>CodeCompanionActions<cr>", {
    desc = "CodeCompanion Open an LLM involvement menu",
    noremap = true,
    silent = true,
 })
-vim.api.nvim_set_keymap(
+map(
    "n",
    "<leader>a",
    "<cmd>CodeCompanionToggle<cr>",
    { desc = "CodeCompanion Open a LLM buffer", noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
+map(
    "v",
    "<leader>a",
    "<cmd>CodeCompanionToggle<cr>",
    { desc = "CodeCompanion Open a LLM buffer", noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap("v", "ga", "<cmd>CodeCompanionAdd<cr>", {
+map("v", "ga", "<cmd>CodeCompanionAdd<cr>", {
    desc = "CodeCompanion maybe save a chat with a LLM",
    noremap = true,
    silent = true,
@@ -531,157 +598,169 @@ map("n", "<leader>Tt", function()
    require("base46").toggle_transparency()
 end, { desc = "Base46 Toggle transparency", noremap = true, silent = true })
 
-vim.api.nvim_set_keymap(
+map(
    "n",
    "<M-j>",
    "<cmd>cnext<cr>zz",
    { desc = "Quickfix next", noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
+map(
    "n",
    "<M-k>",
    "<cmd>cprev<cr>zz",
    { desc = "Quickfix next", noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
+map(
    "n",
    "<leader>j",
    "<cmd>cnext<cr>",
    { desc = "Quickfix next without zz", noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
+map(
    "n",
    "<leader>k",
    "<cmd>cprev<cr>",
    { desc = "Quickfix next without zz", noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
+map(
    "n",
-   "<leader>co",
+   "<leader>cO",
    "<cmd>copen<cr>",
    { desc = "Quickfix open", noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
+map("n", "<leader>co", function()
+   local win = vim.api.nvim_get_current_win()
+   vim.cmd.copen()
+   vim.api.nvim_set_current_win(win)
+end, { desc = "Quickfix open", noremap = true, silent = true })
+map(
    "n",
    "<leader>cc",
    "<cmd>cclose<cr>",
    { desc = "Quickfix close", noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
+map(
    "n",
    "<leader>cp",
    "<cmd>colder<cr>",
    { desc = "Quickfix previous list (colder)", noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
+map(
    "n",
    "<leader>cn",
    "<cmd>cnewer<cr>",
    { desc = "Quickfix next list (cnewer)", noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
+map(
    "n",
    "<leader>cg",
    "<cmd>cfirst<cr>",
    { desc = "Quickfix first in list (cfirst)", noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
+map(
    "n",
    "<leader>cG",
    "<cmd>clast<cr>",
    { desc = "Quickfix last in list (clast)", noremap = true, silent = true }
 )
 
-vim.api.nvim_set_keymap(
+map(
    "n",
    "<M-.>",
    "<cmd>lnext<cr>zz",
    { desc = "Location_list next", noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
+map(
    "n",
    "<M-,>",
    "<cmd>lprev<cr>zz",
    { desc = "Location_list previous", noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
+map(
    "n",
    "<leader>.",
    "<cmd>lnext<cr>",
    { desc = "Location_list next without zz", noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
+map(
    "n",
    "<leader>,",
    "<cmd>lprev<cr>",
    { desc = "Location_list previous without zz", noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
+map(
    "n",
-   "<leader>lo",
+   "<leader>lO",
    "<cmd>lopen<cr>",
    { desc = "Location_list open", noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
+
+map("n", "<leader>lo", function()
+   local win = vim.api.nvim_get_current_win()
+   vim.cmd.lopen()
+   vim.api.nvim_set_current_win(win)
+end, { desc = "Location_list open", noremap = true, silent = true })
+
+map(
    "n",
    "<leader>lc",
    "<cmd>lclose<cr>",
    { desc = "Location_list close", noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap("n", "<leader>lp", "<cmd>lolder<cr>", {
+map("n", "<leader>lp", "<cmd>lolder<cr>", {
    desc = "Location_list previous list (lolder)",
    noremap = true,
    silent = true,
 })
-vim.api.nvim_set_keymap(
+map(
    "n",
    "<leader>ln",
    "<cmd>lnewer<cr>",
    { desc = "Location_list next list (lnewer)", noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap("n", "<leader>lg", "<cmd>lfirst<cr>", {
+map("n", "<leader>lg", "<cmd>lfirst<cr>", {
    desc = "Location_list first in list (lfirst)",
    noremap = true,
    silent = true,
 })
-vim.api.nvim_set_keymap(
+map(
    "n",
    "<leader>lG",
    "<cmd>llast<cr>",
    { desc = "Location last in list (llast)", noremap = true, silent = true }
 )
 
-vim.api.nvim_set_keymap(
+map(
    "n",
    "<leader>TN",
    "<cmd>tabnew<cr>",
    { desc = "Tabs new (tabnew)", noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
+map(
    "n",
    "<leader>Tn",
    "<cmd>tabnext<cr>",
    { desc = "Tabs next (tabnext)", noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
+map(
    "n",
    "<leader>Tp",
    "<cmd>tabprevious<cr>",
    { desc = "Tabs previous (tabprevious)", noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
+map(
    "n",
    "<leader>Tc",
    "<cmd>tabclose<cr>",
    { desc = "Tabs close (tabclose)", noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
+map(
    "n",
    "<leader>Tg",
    "<cmd>tabrewind<cr>",
    { desc = "Tabs first tab (tabrewind)", noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
+map(
    "n",
    "<leader>TG",
    "<cmd>tablast<cr>",
@@ -696,25 +775,20 @@ map(
    { desc = "Compile current file", noremap = true }
 )
 
-vim.api.nvim_set_keymap(
+map(
    "n",
    "<M-]>",
    "<cmd>tnext<cr>zz",
    { desc = "Ctags next", noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
+map(
    "n",
    "<M-[>",
    "<cmd>tprev<cr>zz",
    { desc = "Ctags previous", noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
-   "n",
-   "<leader>lt",
-   "<cmd>execute 'ltag ' . expand('<cword>') | lopen<cr>",
-   {
-      desc = "Ctags show matching tags in a location list",
-      noremap = true,
-      silent = true,
-   }
-)
+map("n", "<leader>lt", "<cmd>execute 'ltag ' . expand('<cword>') | lopen<cr>", {
+   desc = "Ctags show matching tags in a location list",
+   noremap = true,
+   silent = true,
+})
