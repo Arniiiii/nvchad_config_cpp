@@ -222,14 +222,6 @@ local plugins = {
       opts = overrides.nvimtree,
    },
 
-   -- Install a plugin
-   {
-      "max397574/better-escape.nvim",
-      event = "InsertEnter",
-      config = function()
-         require("better_escape").setup()
-      end,
-   },
    {
       "Civitasv/cmake-tools.nvim",
       config = function()
