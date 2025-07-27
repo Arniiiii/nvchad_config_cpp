@@ -72,5 +72,12 @@ vim.opt.guicursor =
    "n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 
 if vim.fn.executable "ug" == 1 then
-   vim.o.grepprg = 'ug+ --format="\\%f:\\%n:\\%k:\\%O\\%~" --ignore-binary --hidden --ignore-files=.gitignore -R -e "$*"'
+   vim.o.grepprg = 'ug+ --format="\\%f:\\%n:\\%k:\\%O\\%~" --ignore-binary --ignore-files=.gitignore -R -e "$*"'
 end
+
+vim.cmd([[
+
+packadd cfilter
+
+]])
+

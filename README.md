@@ -34,8 +34,10 @@ In general, it's great to use.
         - [x] inline-prompts
         - [ ] autocomplete?
         - [ ] fucked up logic for mappings. How do they work? How to override them?
-        - [ ] how to select multiple buffer/files in one telescope selection?
+        - [x] how to select multiple buffer/files in one telescope selection?
+            - [x] added selection stuff in telescope mappings in configs/telescope.lua
         - [ ] how to stay in insert mode after selection?
+    - [x] check next stuff to specify what model to use, if it's self-deployed: [here](https://github.com/olimorris/codecompanion.nvim/pull/45#issuecomment-2054028057)
 - [ ] Find a good solution for .ipynb files.
     - [ ] [goerz/jupytext.vim](https://github.com/goerz/jupytext.vim) only editing, not executing. Though, amazing, needs jupytext installed
     - [ ] [dccsillag/magma-nvim](https//github.com/dccsillag/magma-nvim) seems to be about executing `*.py` scripts using jupyter. Not about executing ipynb.
@@ -72,10 +74,9 @@ In general, it's great to use.
     - [ ] gitsigns related
 - [ ] somehow get used to `vim-fugitive`
     - [ ] investigate how to use it with `lazygit` better.
+    - [ ] try as a diff tool or merge tool...
+        - [ ] when trying to fix conflict, try to use it
 - [x] tmux navigator. Added keybindings for it. Ctrl+hjkl for navigating + tmux integration!!!
-- [x] added CodeCompanion plugin. Do you have ollama installed? Do you have a self-deployed AI ? This plugin is for you
-    - [x] check next stuff to specify what model to use, if it's self-deployed: [here](https://github.com/olimorris/codecompanion.nvim/pull/45#issuecomment-2054028057)
-    - [ ] still no shortcuts. `:CodeCompanion` will give you options to use.
 - [ ] Find out if there's a way to turn on less plugin not lazily. Investigation
     - [ ] `ft` for some plugins works, for some not, idk why
 - [x] Added [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify). Good looking plugin.
@@ -95,8 +96,10 @@ In general, it's great to use.
     - [x] Actually there's a snippet `#guard`.
 - [ ] Use `ug` everywhere:
     - [ ] in telescope
-    - [ ] in `:grep`
+        - [ ] I've tried putting something to setup { defaults { vimgrep_args: {"ug",...}}}, but it doesn't work...
+    - [x] in `:grep`
 - [ ] LaTeX... I need to practice...
     - [x] installed vimtex... now I should learn some latex for real...
 - [ ] Add `errorformat` for `rs` filetype for results of tracing that I have
 - [ ] GNU Global
+- [ ] Get used to use plugin for surrounding stuff

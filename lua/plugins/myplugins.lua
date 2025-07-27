@@ -173,7 +173,7 @@ local plugins = {
       dependencies = { "nvim-treesitter/nvim-treesitter" },
       cmd = "Telescope",
       opts = function()
-         return require "nvchad.configs.telescope"
+         return require "configs.telescope"
       end,
    },
 

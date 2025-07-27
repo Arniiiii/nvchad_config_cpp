@@ -30,7 +30,7 @@ map("x", "<leader>/", function()
    for i = 2, #selection do
       text = text .. "\\n" .. vim.fn.escape(selection[i], [[\/]])
    end
-   vim.cmd.lgrep(text)
+   vim.cmd("silent lgrep " .. text)
    local win = vim.api.nvim_get_current_win()
    vim.cmd.lopen()
    vim.api.nvim_set_current_win(win)
@@ -38,6 +38,24 @@ end, {
    desc = "search selected text everywhere in current folder",
    silent = false,
 })
+
+map("x", "<leader>?", function()
+   local selection = get_selection()
+   local text = vim.fn.escape(selection[1], [[\/]])
+   for i = 2, #selection do
+      text = text .. "\\n" .. vim.fn.escape(selection[i], [[\/]])
+   end
+   vim.cmd("silent grep " .. text)
+   local win = vim.api.nvim_get_current_win()
+   vim.cmd.copen()
+   vim.api.nvim_set_current_win(win)
+end, {
+   desc = "search selected text everywhere in current folder",
+   silent = false,
+})
+
+map("n", "<leader>fc", ":Cfilter ")
+map("n", "<leader>fl", ":Lfilter ")
 
 map("x", "<leader>s", function()
    local selection = get_selection()
@@ -85,6 +103,16 @@ map("x", "<leader>S", function()
       .. double_left
    vim.fn.feedkeys(keys_to_feed)
 end, { desc = "substitute all occurance in current folder" })
+
+map("n", "<leader>ul", function()
+   local keys_to_feed = ":lgrep "
+   vim.fn.feedkeys(keys_to_feed)
+end, { desc = "search and put to location_list" })
+
+map("n", "<leader>uq", function()
+   local keys_to_feed = ":grep "
+   vim.fn.feedkeys(keys_to_feed)
+end, { desc = "search and put to location_list" })
 
 map("n", "<leader>b", "<cmd>enew<CR>", { desc = "buffer new" })
 
@@ -320,12 +348,6 @@ map(
    "<cmd>Telescope git_status<CR>",
    { desc = "telescope git status" }
 )
-map(
-   "n",
-   "<leader>th",
-   "<cmd>Telescope terms<CR>",
-   { desc = "telescope pick hidden term" }
-)
 
 map(
    "n",
@@ -333,11 +355,26 @@ map(
    "<cmd>Telescope find_files<cr>",
    { desc = "telescope find files" }
 )
+
 map(
    "n",
    "<leader>tF",
    "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
    { desc = "telescope find all files" }
+)
+
+map(
+   "n",
+   "<leader>tG",
+   "<cmd>Telescope git_files<CR>",
+   { desc = "telescope find all files" }
+)
+
+map(
+   "n",
+   "<leader>tSt",
+   "<cmd>Telescope filetypes<cr>",
+   { desc = "telescope find files" }
 )
 
 map("n", "<leader>TH", function()

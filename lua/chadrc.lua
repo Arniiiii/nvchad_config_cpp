@@ -5,8 +5,8 @@ local M = {}
 local highlights = require "highlights"
 
 M.base46 = {
-   theme = "chadracula",
-   theme_toggle = { "vscode_light", "chadracula" },
+   theme = "aylin",
+   theme_toggle = { "vscode_light", "aylin" },
    -- transparency = true,
    hl_override = highlights.override,
    hl_add = highlights.add,
