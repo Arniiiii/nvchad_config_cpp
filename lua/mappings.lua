@@ -314,6 +314,7 @@ map({ "n", "x" }, "<leader>fm", function()
    require("conform").format { lsp_fallback = true }
 end, { desc = "general format file" })
 
+map("n", "<leader>ss", "<cmd>set spell!<CR>", { desc = "toggle spell" })
 map("n", "<leader>ra", "<cmd>set nu!<CR>", { desc = "toggle line number" })
 map("n", "<leader>rr", "<cmd>set rnu!<CR>", { desc = "toggle relative number" })
 map(

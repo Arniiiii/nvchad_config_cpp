@@ -242,7 +242,7 @@ local plugins = {
          -- "echasnovski/mini.pick", -- optional
          -- "folke/snacks.nvim", -- optional
       },
-      cmd = {"Neogit"}
+      cmd = { "Neogit" },
    },
    {
       "danymat/neogen",
@@ -426,11 +426,18 @@ local plugins = {
    {
       "kylechui/nvim-surround",
       version = "^3.0.0", -- Use for stability; omit to use `main` branch for the latest features
-      event = "VeryLazy",
+      lazy = false,
       config = function()
          require("nvim-surround").setup {
             -- Configuration here, or leave empty to use defaults
          }
+      end,
+   },
+   {
+      "stevearc/overseer.nvim",
+      opts = {},
+      config = function()
+         require "configs.overseer"
       end,
    },
 }

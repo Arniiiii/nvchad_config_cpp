@@ -1,0 +1,9 @@
+tags
+build/
+build*/
+target/
+.git/
+.cache/
+GPATH
+GRTAGS
+GTAGS
