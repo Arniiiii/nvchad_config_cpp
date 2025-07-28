@@ -35,19 +35,22 @@ In general, it's great to use.
 ## TODO
 - [ ] Figure out a way of using Large language model.
     - [x] Setup [`olimorris/codecompanion.nvim`](https://github.com/olimorris/codecompanion.nvim) ~~for `ollama` with dolphin-mistral:latest~~ now Gemini because it has free tier.
+        - [x] check next stuff to specify what model to use, if it's self-deployed: [here](https://github.com/olimorris/codecompanion.nvim/pull/45#issuecomment-2054028057)
         - [x] chat
         - [x] inline-prompts
         - [ ] autocomplete?
+            - [x] temporary can be enabled via another plugin called [`huggingface/llm.nvim`](https://github.com/huggingface/llm.nvim) and enabling via `:LLMToggleAutoSuggestion`. Go to config and fix what model you want to use
         - [ ] fucked up logic for mappings. How do they work? How to override them?
         - [x] how to select multiple buffer/files in one telescope selection?
             - [x] added selection stuff in telescope mappings in `configs/telescope.lua`
         - [ ] how to stay in insert mode after selection?
-    - [x] check next stuff to specify what model to use, if it's self-deployed: [here](https://github.com/olimorris/codecompanion.nvim/pull/45#issuecomment-2054028057)
+        - [ ] How to set for Gemini to use model `pro`, not `flash`? Why is just setting it not enough?
 - [ ] Find a good solution for `.ipynb` files.
     - [ ] [`goerz/jupytext.vim`](https://github.com/goerz/jupytext.vim) only editing, not executing. Though, amazing, needs `jupytext` installed
     - [ ] [`dccsillag/magma-nvim`](https//github.com/dccsillag/magma-nvim) seems to be about executing `*.py` scripts using `jupyter`. Not about executing `ipynb`.
     - [ ] [`luk400/vim-jukit`](https://github.com/luk400/vim-jukit) investigation...
     - [ ] no solution because of images?
+        - [ ] but `tmux` supports `sixel`... hmmm... or should it be like `vimtex` with live showing?
 - [x] Migrate to NvChad `v2.5`
     - [x] Apply migrate.sh 
     - [x] Transform mappings syntax to vim mappings
@@ -117,7 +120,15 @@ In general, it's great to use.
     - [ ] Now I should learn some latex for real...
 - [ ] Add `errorformat` for `rs` file type for results of tracing that I have
 - [ ] GNU Global
-- [ ] Get used to use plugin for surrounding stuff
+- [x] Get used to use plugin for surrounding stuff
+    - [x] it appeared it didn't work...
+    - [x] mappings:
+        - [x] `ys` + motion that selects i.e. `ib` (inside of brackets `[({})]` ) + a symbol to wrap
+        - [x] `cs` + ... + ... = change surrounding
+        - [x] `ds` + bracket = delete wrapping with the bracket
+        - [x] `cst` + i.e. `h1` + `<CR>` = change HTML tags (i.e. was `<b>smth</b>`, then `<h1>smth</h1>`)
+        - [x] `dsf` = delete surrounding function call (i.e. was `foo(bar)`, then `bar`)
+        - [x] `cs'"` = change from `'` to `"` surroundings
 - [ ] Refactor `mappings.lua` to different files, maybe
 - [ ] Try either fix usage `nvim-cmp` or move to `blink-cmp`
     - [ ] if fix: make it keep showing function signature while I'm passing `arguments`
