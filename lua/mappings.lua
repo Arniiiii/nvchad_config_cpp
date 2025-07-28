@@ -31,13 +31,13 @@ map(
 )
 map(
    "i",
-   "<leader>w",
+   "<C-Right>",
    "<C-o>:call search('\\C\\<\\<Bar>\\%(^\\<Bar>[^'.g:camelchar.']\\@<=\\)['.g:camelchar.']\\<Bar>['.g:camelchar.']\\ze\\%([^'.g:camelchar.']\\&\\>\\@!\\)\\<Bar>\\%$','W')<CR>",
    { silent = true, desc = "" }
 )
 map(
    "i",
-   "<leader>W",
+   "<C-Left>",
    "<C-o>:call search('\\C\\<\\<Bar>\\%(^\\<Bar>[^'.g:camelchar.']\\@<=\\)['.g:camelchar.']\\<Bar>['.g:camelchar.']\\ze\\%([^'.g:camelchar.']\\&\\>\\@!\\)\\<Bar>\\%^','bW')<CR>",
    { silent = true, desc = "" }
 )
