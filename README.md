@@ -40,21 +40,27 @@ In general, it's great to use.
         - [x] inline-prompts
         - [ ] autocomplete?
             - [x] temporary can be enabled via another plugin called [`huggingface/llm.nvim`](https://github.com/huggingface/llm.nvim) and enabling via `:LLMToggleAutoSuggestion`. Go to config and fix what model you want to use
-        - [ ] fucked up logic for mappings. How do they work? How to override them?
-        - [x] how to select multiple buffer/files in one telescope selection?
-            - [x] added selection stuff in telescope mappings in `configs/telescope.lua`
-        - [ ] how to stay in insert mode after selection?
-        - [ ] How to set for Gemini to use model `pro`, not `flash`? Why is just setting it not enough?
+        - [ ] Mappings. How do they work? What are they? How to override them?
+            - [x] IDK, but it seems there's a help for mapping via `?` in `Normal` mode in chat
+        - [x] How to select multiple buffer/files in one telescope selection?
+            - [x] added selection stuff in telescope mappings in `lua/configs/telescope.lua`
+        - [ ] How to stay in insert mode after selection?
+        - [x] How to set for Gemini to use model `pro`, not `flash`? Why is just setting it not enough?
+            - [x] [it seems it can be done in two ways and I previously failed.](https://codecompanion.olimorris.dev/configuration/adapters.html#changing-a-model)
+        - [ ] how to save chats? 
+            - [ ] it seems there's a history plugin for plugin
+        - [ ] it seems I should [add more plugins for the plugin](https://codecompanion.olimorris.dev/usage/chat-buffer/tools.html#community-tools)
 - [ ] Find a good solution for `.ipynb` files.
     - [ ] [`goerz/jupytext.vim`](https://github.com/goerz/jupytext.vim) only editing, not executing. Though, amazing, needs `jupytext` installed
     - [ ] [`dccsillag/magma-nvim`](https//github.com/dccsillag/magma-nvim) seems to be about executing `*.py` scripts using `jupyter`. Not about executing `ipynb`.
     - [ ] [`luk400/vim-jukit`](https://github.com/luk400/vim-jukit) investigation...
     - [ ] no solution because of images?
-        - [ ] but `tmux` supports `sixel`... hmmm... or should it be like `vimtex` with live showing?
+        - [ ] but `tmux` supports `sixel`... Hmm... Should it be like `vimtex` with live showing in different window?
 - [x] Migrate to NvChad `v2.5`
     - [x] Apply migrate.sh 
     - [x] Transform mappings syntax to vim mappings
     - [ ] Cheat sheet [doesn't have hints for categories with one mapping](https://github.com/NvChad/NvChad/issues/2688#issuecomment-2046201103) 
+        - [ ] [It is impossible to `/` inside of cheat sheet.](https://discord.com/channels/869557815780470834/1390081070107594823)
 - [x] Debugger stuff. Console `gdb`/`lldb` is cool, but some want it inside editor...
     - [x] CMake debugger in Neovim !!! CMake Generate (`<leader>G`), toggle a breakpoint (`<leader>b`), press Continue(`<F5>`), it works! Prerequisite: CMake is 3.27+ and is compiled with DAP feature. (for Gentoo users `flaggie dev-build/cmake +dap`).
         - [x] build folder is taken from CMake plugin
@@ -95,7 +101,8 @@ In general, it's great to use.
 - [x] `tmux` navigator. Added keybindings for it. `Ctrl+hjkl` for navigating + `tmux` integration!!!
 - [ ] Find out if there's a way to turn on less plugin not lazily. Investigation
     - [ ] `ft` for some plugins works, for some not, IDK why
-    - [ ] `cmd` works more often than not
+    - [x] `cmd` works more often than not
+    - [ ] `keys` sometimes just do not work 
 - [x] Added [`rcarriga/nvim-notify`](https://github.com/rcarriga/nvim-notify). Good looking plugin.
 - [x] Find a plugin for cool command palette
     - [x] [`cmp-cmdline`](https://github.com/hrsh7th/cmp-cmdline) works just fine
@@ -137,3 +144,4 @@ In general, it's great to use.
 - [x] add a mapping to make between capital letters
     - [x] `<leader>w`, `<leader>W`
         - [ ] it is slow as a snail. Vim script seems to be slow in this case...
+- [ ] why sometimes `<tab>` inside of `Insert` mode makes me go to another part of code?

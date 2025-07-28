@@ -16,19 +16,47 @@ require("codecompanion").setup {
             },
          })
       end,
+      -- my_gemini_2_5_pro = function()
+      --    return require("codecompanion.adapters").extend("gemini", {
+      --       schema = {
+      --          model = {
+      --             default = "gemini-2.5-pro",
+      --          },
+      --       },
+      --       reasoning_effort = {
+      --          "high",
+      --       },
+      --    })
+      -- end,
    },
    strategies = {
       chat = {
-         adapter = "gemini",
-         model = "gemini-2.5-pro"
+         adapter = {
+            name = "gemini",
+            model = "gemini-2.5-pro",
+            reasoning_effort = "high",
+         },
       },
       inline = {
-         adapter = "gemini",
-         model = "gemini-2.5-pro"
+         adapter = {
+            name = "gemini",
+            model = "gemini-2.5-pro",
+            reasoning_effort = "high",
+         },
       },
       agent = {
-         adapter = "gemini",
-         model = "gemini-2.5-pro"
+         adapter = {
+            name = "gemini",
+            model = "gemini-2.5-pro",
+            reasoning_effort = "high",
+         },
+      },
+      cmd = {
+         adapter = {
+            name = "gemini",
+            model = "gemini-2.5-pro",
+            reasoning_effort = "high",
+         },
       },
    },
    opts = {
