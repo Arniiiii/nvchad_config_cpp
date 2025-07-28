@@ -73,10 +73,16 @@ In general, it's great to use.
     - [x] dap related
     - [ ] telescope related
     - [ ] gitsigns related
-- [ ] somehow get used to `vim-fugitive`
-    - [ ] investigate how to use it with `lazygit` better.
-    - [ ] try as a diff tool or merge tool...
-        - [ ] when trying to fix conflict, try to use it
+- [x] make better git usage workflow
+    - [ ] somehow get used to [`vim-fugitive`](https://github.com/tpope/vim-fugitive)
+        - [x] try as a diff tool or merge tool...
+            - [x] when trying to fix conflict, try to use it
+        - [x] [Neogit](https://github.com/NeogitOrg/neogit) is better. Removed vim-fugitive,
+    - [x] investigate how to use it with [`lazygit`](https://github.com/jesseduffield/lazygit) better.
+    - [x] automatic blame via `gitsigns`
+        - [ ] whatelse gitsigns can?
+            - [x] add some mappings for it
+    - [x] it appears vim had built-in diffmode. Added some mappings for it
 - [x] tmux navigator. Added keybindings for it. Ctrl+hjkl for navigating + tmux integration!!!
 - [ ] Find out if there's a way to turn on less plugin not lazily. Investigation
     - [ ] `ft` for some plugins works, for some not, idk why
@@ -104,3 +110,4 @@ In general, it's great to use.
 - [ ] Add `errorformat` for `rs` filetype for results of tracing that I have
 - [ ] GNU Global
 - [ ] Get used to use plugin for surrounding stuff
+- [ ] refactor mappings.lua to different files, maybe

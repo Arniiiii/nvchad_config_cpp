@@ -54,6 +54,172 @@ end, {
    silent = false,
 })
 
+map("n", "<leader>Dc", "<cmd>DiffviewClose<CR>", { desc = "Diffview Close" })
+map("n", "<leader>Do", "<cmd>DiffviewOpen<CR>", { desc = "Diffview Open" })
+map(
+   "n",
+   "<leader>Dr",
+   "<cmd>DiffviewRefresh<CR>",
+   { desc = "Diffview Refresh" }
+)
+map("n", "<leader>Dl", "<cmd>DiffviewLog<CR>", { desc = "Diffview Log" })
+map(
+   "n",
+   "<leader>Df",
+   "<cmd>DiffviewFocusFiles<CR>",
+   { desc = "Diffview FocusFiles" }
+)
+map(
+   "n",
+   "<leader>Dh",
+   "<cmd>DiffviewFileHistory<CR>",
+   { desc = "Diffview FileHistory" }
+)
+map(
+   "n",
+   "<leader>Dt",
+   "<cmd>DiffviewToggleFiles<CR>",
+   { desc = "Diffview ToggleFiles" }
+)
+
+map("n", "<leader>ng", "<cmd>Neogit<CR>", { desc = "Neogit start" })
+
+local gitsigns = require "gitsigns"
+
+-- Navigation
+map("n", "]h", function()
+   if vim.wo.diff then
+      vim.cmd.normal { "]h", bang = true }
+   else
+      gitsigns.nav_hunk "next"
+   end
+end)
+
+map("n", "[h", function()
+   if vim.wo.diff then
+      vim.cmd.normal { "[h", bang = true }
+   else
+      gitsigns.nav_hunk "prev"
+   end
+end)
+
+-- Actions
+map("n", "<leader>hs", gitsigns.stage_hunk, { desc = "gitsigns stage_hunk" })
+map("n", "<leader>hr", gitsigns.reset_hunk, { desc = "gitsigns reset_hunk" })
+
+map("v", "<leader>hs", function()
+   gitsigns.stage_hunk { vim.fn.line ".", vim.fn.line "v" }
+end, { desc = 'gitsigns stage_hunk { vim.fn.line ".", vim.fn.line "v" }' })
+
+map("v", "<leader>hr", function()
+   gitsigns.reset_hunk { vim.fn.line ".", vim.fn.line "v" }
+end, { desc = 'gitsigns reset_hunk { vim.fn.line ".", vim.fn.line "v" }' })
+
+map(
+   "n",
+   "<leader>hS",
+   gitsigns.stage_buffer,
+   { desc = "gitsigns stage_buffer" }
+)
+map(
+   "n",
+   "<leader>hR",
+   gitsigns.reset_buffer,
+   { desc = "gitsigns reset_buffer" }
+)
+map(
+   "n",
+   "<leader>hp",
+   gitsigns.preview_hunk,
+   { desc = "gitsigns preview_hunk" }
+)
+map(
+   "n",
+   "<leader>hi",
+   gitsigns.preview_hunk_inline,
+   { desc = "gitsigns preview_hunk_inline" }
+)
+
+map("n", "<leader>hb", function()
+   gitsigns.blame_line { full = true }
+end, { desc = "gitsigns blame_line { full = true }" })
+
+map("n", "<leader>hd", gitsigns.diffthis, { desc = "gitsigns diffthis" })
+
+map("n", "<leader>hD", function()
+   gitsigns.diffthis "~"
+end, { desc = "gitsigns diffthis('~')" })
+
+map("n", "<leader>hQ", function()
+   gitsigns.setqflist "all"
+end, { desc = "gitsigns setqflist('all')" })
+map("n", "<leader>hq", gitsigns.setqflist, { desc = "gitsigns setqflist" })
+
+-- Toggles
+map(
+   "n",
+   "<leader>tb",
+   gitsigns.toggle_current_line_blame,
+   { desc = "gitsigns toggle_current_line_blame" }
+)
+map(
+   "n",
+   "<leader>tw",
+   gitsigns.toggle_word_diff,
+   { desc = "gitsigns toggle_word_diff" }
+)
+
+-- Text object
+map(
+   { "o", "x" },
+   "ih",
+   gitsigns.select_hunk,
+   { desc = "'ih', gitsigns select_hunk" }
+)
+
+map(
+   "n",
+   "<leader>Dc",
+   "<cmd>diffoff<CR>",
+   {desc='diff close'}
+)
+map(
+   "n",
+   "<leader>Du",
+   "<cmd>diffupdate<CR>",
+   {desc='diff update'}
+)
+map(
+   "n",
+   "<leader>Dt",
+   "<cmd>diffthis<CR>",
+   {desc='diff this'}
+)
+map(
+   "n",
+   "<leader>Dp",
+   "<cmd>diffpatch<CR>",
+   {desc='diff patch'}
+)
+map(
+   "n",
+   "<leader>Ds",
+   "<cmd>diffsplit<CR>",
+   {desc='diff split'}
+)
+map(
+   "n",
+   "<leader>Dg",
+   "<cmd>diffget<CR>",
+   {desc='diff get'}
+)
+map(
+   "n",
+   "<leader>Dp",
+   "<cmd>diffput<CR>",
+   {desc='diff put'}
+)
+
 map("n", "<leader>fc", ":Cfilter ")
 map("n", "<leader>fl", ":Lfilter ")
 
