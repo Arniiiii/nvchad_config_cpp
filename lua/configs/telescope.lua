@@ -45,9 +45,9 @@ return {
       mappings = {
          i = {
             ["<ESC>"] = actions.close,
-            ["<C-J>"] = actions.move_selection_next,
-            ["<C-K>"] = actions.move_selection_previous,
-            ["<TAB>"] = actions.toggle_selection,
+            ["<C-j>"] = actions.move_selection_next,
+            ["<C-k>"] = actions.move_selection_previous,
+            ["<C-s>"] = actions.toggle_selection,
             ["<C-TAB>"] = actions.toggle_selection
                + actions.move_selection_next,
             ["<S-TAB>"] = actions.toggle_selection
@@ -56,8 +56,8 @@ return {
             -- ["<C-V>"] = telescope_custom_actions.multi_selection_open_vsplit,
             -- ["<C-S>"] = telescope_custom_actions.multi_selection_open_split,
             -- ["<C-T>"] = telescope_custom_actions.multi_selection_open_tab,
-            ["<C-DOWN>"] = require("telescope.actions").cycle_history_next,
-            ["<C-UP>"] = require("telescope.actions").cycle_history_prev,
+            ["<C-Down>"] = require("telescope.actions").cycle_history_next,
+            ["<C-Up>"] = require("telescope.actions").cycle_history_prev,
          },
          n = i,
       },
