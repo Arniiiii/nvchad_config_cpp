@@ -10,13 +10,49 @@ local function get_selection()
    return lines
 end
 
--- Disable mappings
--- local nomap = vim.keymap.del
 
--- nomap("n", "'")
-
--- map("n","<C-'>", "<C-i>",{desc="general next in jumplist (tmux workaround)"})
--- tabufline
+-- Copy paste-edit-resorted from here: https://vim.fandom.com/wiki/Moving_through_camel_case_words#Enhanced_version
+-- " Use one of the following to define the camel characters.
+-- " Stop on capital letters.
+vim.g.camelchar = "A-Z"
+-- " Also stop on numbers.
+-- vim.g.camelchar = "A-Z0-9"
+map(
+   "n",
+   "<leader>w",
+   ":<C-u>call search('\\C\\<\\<Bar>\\%(^\\<Bar>[^'.g:camelchar.']\\@<=\\)['.g:camelchar.']\\<Bar>['.g:camelchar.']\\ze\\%([^'.g:camelchar.']\\&\\>\\@!\\)\\<Bar>\\%$','W')<CR>",
+   { silent = true, desc = "" }
+)
+map(
+   "n",
+   "<leader>W",
+   ":<C-u>call search('\\C\\<\\<Bar>\\%(^\\<Bar>[^'.g:camelchar.']\\@<=\\)['.g:camelchar.']\\<Bar>['.g:camelchar.']\\ze\\%([^'.g:camelchar.']\\&\\>\\@!\\)\\<Bar>\\%^','bW')<CR>",
+   { silent = true, desc = "" }
+)
+map(
+   "i",
+   "<leader>w",
+   "<C-o>:call search('\\C\\<\\<Bar>\\%(^\\<Bar>[^'.g:camelchar.']\\@<=\\)['.g:camelchar.']\\<Bar>['.g:camelchar.']\\ze\\%([^'.g:camelchar.']\\&\\>\\@!\\)\\<Bar>\\%$','W')<CR>",
+   { silent = true, desc = "" }
+)
+map(
+   "i",
+   "<leader>W",
+   "<C-o>:call search('\\C\\<\\<Bar>\\%(^\\<Bar>[^'.g:camelchar.']\\@<=\\)['.g:camelchar.']\\<Bar>['.g:camelchar.']\\ze\\%([^'.g:camelchar.']\\&\\>\\@!\\)\\<Bar>\\%^','bW')<CR>",
+   { silent = true, desc = "" }
+)
+map(
+   "v",
+   "<leader>w",
+   "<Esc>`>:<C-U>call search('\\C\\<\\<Bar>\\%(^\\<Bar>[^'.g:camelchar.']\\@<=\\)['.g:camelchar.']\\<Bar>['.g:camelchar.']\\ze\\%([^'.g:camelchar.']\\&\\>\\@!\\)\\<Bar>\\%$','W')<CR>v`<o",
+   { silent = true, desc = "" }
+)
+map(
+   "v",
+   "<leader>W",
+   ":<C-U>call search('\\C\\<\\<Bar>\\%(^\\<Bar>[^'.g:camelchar.']\\@<=\\)['.g:camelchar.']\\<Bar>['.g:camelchar.']\\ze\\%([^'.g:camelchar.']\\&\\>\\@!\\)\\<Bar>\\%^','bW')<CR>v`>o",
+   { silent = true, desc = "" }
+)
 
 map(
    "v",
@@ -177,48 +213,13 @@ map(
    { desc = "'ih', gitsigns select_hunk" }
 )
 
-map(
-   "n",
-   "<leader>Dc",
-   "<cmd>diffoff<CR>",
-   {desc='diff close'}
-)
-map(
-   "n",
-   "<leader>Du",
-   "<cmd>diffupdate<CR>",
-   {desc='diff update'}
-)
-map(
-   "n",
-   "<leader>Dt",
-   "<cmd>diffthis<CR>",
-   {desc='diff this'}
-)
-map(
-   "n",
-   "<leader>Dp",
-   "<cmd>diffpatch<CR>",
-   {desc='diff patch'}
-)
-map(
-   "n",
-   "<leader>Ds",
-   "<cmd>diffsplit<CR>",
-   {desc='diff split'}
-)
-map(
-   "n",
-   "<leader>Dg",
-   "<cmd>diffget<CR>",
-   {desc='diff get'}
-)
-map(
-   "n",
-   "<leader>Dp",
-   "<cmd>diffput<CR>",
-   {desc='diff put'}
-)
+map("n", "<leader>Dc", "<cmd>diffoff<CR>", { desc = "diff close" })
+map("n", "<leader>Du", "<cmd>diffupdate<CR>", { desc = "diff update" })
+map("n", "<leader>Dt", "<cmd>diffthis<CR>", { desc = "diff this" })
+map("n", "<leader>Dp", "<cmd>diffpatch<CR>", { desc = "diff patch" })
+map("n", "<leader>Ds", "<cmd>diffsplit<CR>", { desc = "diff split" })
+map("n", "<leader>Dg", "<cmd>diffget<CR>", { desc = "diff get" })
+map("n", "<leader>Dp", "<cmd>diffput<CR>", { desc = "diff put" })
 
 map("n", "<leader>fc", ":Cfilter ")
 map("n", "<leader>fl", ":Lfilter ")
@@ -304,9 +305,9 @@ map("n", "<leader>x", function()
 end, { desc = "buffer close" })
 
 -- whichkey
-map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
+map("n", "<leader>HK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
 
-map("n", "<leader>wk", function()
+map("n", "<leader>Hk", function()
    vim.cmd("WhichKey " .. vim.fn.input "WhichKey: ")
 end, { desc = "whichkey query lookup" })
 

@@ -26,7 +26,7 @@ Maybe try doing something like this:
 `git config --global core.excludesfile ~/.config/nvim/.gitignore_global`
 
 
-Try use `<leader>ch` aka `Space Bar + c + h` to get an awesome cheat sheet or use `<leader>wK` for [`which-key`](https://github.com/folke/which-key.nvim) .
+Try use `<leader>ch` aka `Space Bar + c + h` to get an awesome cheat sheet or use `<leader>HK` for [`which-key`](https://github.com/folke/which-key.nvim) .
 
 ## Is it good?
 It's have clangd through Mason, CMake plugin, CMake debugger, c++ debugger, python debugger, some keybindings. 
@@ -123,4 +123,6 @@ In general, it's great to use.
     - [ ] if fix: make it keep showing function signature while I'm passing `arguments`
 - [x] spell checker: add a mapping to toggle it.
     - [x] `<leader>ss`
-- [ ] add a mapping to make between capital letters
+- [x] add a mapping to make between capital letters
+    - [x] `<leader>w`, `<leader>W`
+        - [ ] it is slow as a snail. Vim script seems to be slow in this case...
