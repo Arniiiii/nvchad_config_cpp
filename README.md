@@ -69,10 +69,10 @@ In general, it's great to use.
     - [ ] how to make the mappings for dap-mode only?
 - [ ] findout how to make some command like `:make nextest r` async
     - [ ] via overseer plugin?
-- [ ] More keybindigs for some plugins
+- [x] More keybindigs for some plugins
     - [x] dap related
-    - [ ] telescope related
-    - [ ] gitsigns related
+    - [x] telescope related
+    - [x] gitsigns related
 - [x] make better git usage workflow
     - [ ] somehow get used to [`vim-fugitive`](https://github.com/tpope/vim-fugitive)
         - [x] try as a diff tool or merge tool...
