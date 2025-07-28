@@ -7,7 +7,7 @@ It's my config for NvChad with orientation to C++ and python.
 Install neovim  ( google it if you don't know how )
 
 If you are on linux:
-- In a console:  `git clone https://github.com/Gerodote/Nvchad_config_cpp.git --branch master ~/.config/nvim`
+- In a console:  `git clone https://github.com/Arniiiii/nvchad_config_cpp.git --branch master ~/.config/nvim`
 
 If another operational system:
 - check where neovim config is usually located and change the last part of the command for linux.
@@ -22,6 +22,7 @@ To get some plugins working, which are written in some other languages than lua 
 - restart neovim
 
 Try use `<leader>ch` aka `Space Bar + c + h` to get an awesome cheatsheet.
+or use `<leader>wK` .
 
 ## Is it good?
 It's have clangd through Mason, cmake plugin, cmake debugger, c++ debugger, python debugger, some keybindings. 
