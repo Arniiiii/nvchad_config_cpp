@@ -160,8 +160,8 @@ map(
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "general save file" })
 map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "general copy whole file" })
 
--- map("v", ">", ">gv", { desc = "general indent" })
--- map("v", "<", "<gv", { desc = "general backdent" })
+map("v", ">", ">gv", { desc = "general indent" })
+map("v", "<", "<gv", { desc = "general backdent" })
 
 map(
    "n",
