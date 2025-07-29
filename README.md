@@ -146,3 +146,4 @@ In general, it's great to use.
     - [x] `<leader>w`, `<leader>W`
         - [ ] it is slow as a snail. Vim script seems to be slow in this case...
 - [ ] why sometimes `<tab>` inside of `Insert` mode makes me go to another part of code?
+- [ ] when using telescope themes, completeopt somehow overrides. how and why and how don't do it?
