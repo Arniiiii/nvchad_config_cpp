@@ -46,6 +46,8 @@ vim.schedule(function()
 end)
 require "myinit"
 
+
+
 vim.opt.wildignore:append { "target/**", "build*/**", "\\.git/**", "tags" }
 
 vim.opt.relativenumber = true
@@ -81,3 +83,4 @@ packadd cfilter
 
 ]])
 
+vim.g.completeopt = "menu,menuone,noselect"
