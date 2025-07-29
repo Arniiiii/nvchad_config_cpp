@@ -60,7 +60,7 @@ map(
    "y/\\V<C-R>=escape(@\",'/')<CR><CR>",
    { desc = "search selected in current buffer" }
 )
-map("x", "<leader>]", function()
+map("x", "<leader>gl", function()
    local selection = get_selection()
    local text = vim.fn.escape(selection[1], [[\/]])
    for i = 2, #selection do
@@ -71,11 +71,11 @@ map("x", "<leader>]", function()
    vim.cmd.lopen()
    vim.api.nvim_set_current_win(win)
 end, {
-   desc = "search selected text everywhere in current folder",
+   desc = "search selected text everywhere in current folder, put in location list",
    silent = false,
 })
 
-map("x", "<leader>}", function()
+map("x", "<leader>gc", function()
    local selection = get_selection()
    local text = vim.fn.escape(selection[1], [[\/]])
    for i = 2, #selection do
@@ -86,7 +86,7 @@ map("x", "<leader>}", function()
    vim.cmd.copen()
    vim.api.nvim_set_current_win(win)
 end, {
-   desc = "search selected text everywhere in current folder",
+   desc = "search selected text everywhere in current folder, put in quickfix list",
    silent = false,
 })
 
