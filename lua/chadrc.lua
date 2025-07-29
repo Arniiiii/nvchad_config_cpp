@@ -5,8 +5,8 @@ local M = {}
 local highlights = require "highlights"
 
 M.base46 = {
-   theme = "mountain",
-   theme_toggle = { "vscode_light", "mountain" },
+   theme = "ayu_dark",
+   theme_toggle = { "vscode_light", "ayu_dark" },
    -- transparency = true,
    hl_override = highlights.override,
    hl_add = highlights.add,
