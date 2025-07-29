@@ -464,6 +464,13 @@ local plugins = {
          require "configs.overseer"
       end,
    },
+   {
+      "nvim-treesitter/nvim-treesitter-context",
+      event = "User FilePost",
+      config = function() 
+         require "configs.nvim-treesitter-context"
+      end
+   },
 }
 
 return plugins
