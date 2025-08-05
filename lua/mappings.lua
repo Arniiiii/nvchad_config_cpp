@@ -54,12 +54,6 @@ map(
    { silent = true, desc = "" }
 )
 
-map(
-   "v",
-   "g/",
-   "y/\\V<C-R>=escape(@\",'/')<CR><CR>",
-   { desc = "search selected in current buffer" }
-)
 map("x", "<leader>gl", function()
    local selection = get_selection()
    local text = vim.fn.escape(selection[1], [[\/]])
