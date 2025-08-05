@@ -97,7 +97,7 @@ In general, it's great to use.
     - [x] DAP related
     - [x] [`Telescope`](https://github.com/nvim-telescope/telescope.nvim) related
     - [x] [`gitsigns`](https://github.com/lewis6991/gitsigns.nvim) related
-- [x] Make better git usage workflow
+- [ ] Make better git usage workflow
     - [ ] Somehow get used to [`vim-fugitive`](https://github.com/tpope/vim-fugitive)
         - [x] try as a diff tool or merge tool...
             - [x] when trying to fix conflict, try to use it
@@ -108,6 +108,7 @@ In general, it's great to use.
         - [x] What else `gitsigns` can?
             - [x] add some mappings for it
     - [x] it appears vim had built-in diff mode. Added some mappings for it
+    - [ ] how to do pr review inside of neovim?
 - [x] `tmux` navigator. Added keybindings for it. `Ctrl+hjkl` for navigating + `tmux` integration!!!
 - [ ] Find out if there's a way to turn on less plugin not lazily. Investigation
     - [ ] `ft` for some plugins works, for some not, IDK why
