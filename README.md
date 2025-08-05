@@ -40,16 +40,24 @@ In general, it's great to use.
         - [x] inline-prompts
         - [ ] autocomplete?
             - [x] temporary can be enabled via another plugin called [`huggingface/llm.nvim`](https://github.com/huggingface/llm.nvim) and enabling via `:LLMToggleAutoSuggestion`. Go to config and fix what model you want to use
-        - [ ] Mappings. How do they work? What are they? How to override them?
+        - [x] Mappings. How do they work? What are they? How to override them?
             - [x] IDK, but it seems there's a help for mapping via `?` in `Normal` mode in chat
+            - [x] It's possible to remap them in config but they have pretty solid default, let's not touch it.
         - [x] How to select multiple buffer/files in one telescope selection?
             - [x] added selection stuff in telescope mappings in `lua/configs/telescope.lua`
         - [ ] How to stay in insert mode after selection?
         - [x] How to set for Gemini to use model `pro`, not `flash`? Why is just setting it not enough?
             - [x] [it seems it can be done in two ways and I previously failed.](https://codecompanion.olimorris.dev/configuration/adapters.html#changing-a-model)
-        - [ ] how to save chats? 
-            - [ ] it seems there's a history plugin for plugin
+        - [x] how to save chats? 
+            - [x] it seems there's a history plugin for plugin
+                - [x] added
+                    - [x] how to use?
+                        - [x] maybe `gh` and `sc`
         - [ ] it seems I should [add more plugins for the plugin](https://codecompanion.olimorris.dev/usage/chat-buffer/tools.html#community-tools)
+            - [x] added VectorCode
+                - [ ] issue 1: always telling when Vec CLI is not an executable. How to remove this ( or should I ? )
+            - [ ] Maybe I should add add-on for mcp...
+                - [ ] What to use it for?
 - [ ] Find a good solution for `.ipynb` files.
     - [ ] [`goerz/jupytext.vim`](https://github.com/goerz/jupytext.vim) only editing, not executing. Though, amazing, needs `jupytext` installed
     - [ ] [`dccsillag/magma-nvim`](https//github.com/dccsillag/magma-nvim) seems to be about executing `*.py` scripts using `jupyter`. Not about executing `ipynb`.
@@ -93,10 +101,10 @@ In general, it's great to use.
         - [x] try as a diff tool or merge tool...
             - [x] when trying to fix conflict, try to use it
         - [x] [`Neogit`](https://github.com/NeogitOrg/neogit) is better. 
-            - [ ] Removed `vim-fugitive`.
+            - [x] Removed `vim-fugitive`.
     - [x] investigate how to use it with [`lazygit`](https://github.com/jesseduffield/lazygit) better.
     - [x] automatic blame via `gitsigns`
-        - [ ] What else `gitsigns` can?
+        - [x] What else `gitsigns` can?
             - [x] add some mappings for it
     - [x] it appears vim had built-in diff mode. Added some mappings for it
 - [x] `tmux` navigator. Added keybindings for it. `Ctrl+hjkl` for navigating + `tmux` integration!!!
@@ -146,5 +154,11 @@ In general, it's great to use.
     - [x] `<leader>w`, `<leader>W`
         - [ ] it is slow as a snail. Vim script seems to be slow in this case...
 - [ ] why sometimes `<tab>` inside of `Insert` mode makes me go to another part of code?
-- [x] when using telescope themes, completeopt somehow overrides. how and why and how don't do it?
+- [ ] when using `:colorscheme` themes, completeopt somehow overrides. how and why and how don't do it?
     - [x] IDK how but if set globally, it doesn't override
+        - [ ] nope, it still overrides.
+    - [ ] it seems that I should investigate:
+        - [ ] how to keep nvim-cmp working correct with it set?
+    - [ ] how to override nvchad in this matter?
+- [ ] learn more about text objects
+    - [ ] check this video ... https://www.youtube.com/watch?v=JnD9Uro_oqc&t=172s

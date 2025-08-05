@@ -300,6 +300,12 @@ local plugins = {
       lazy = false,
    },
    {
+      "Davidyz/VectorCode",
+      version = "*", -- optional, depending on whether you're on nightly or release
+      dependencies = { "nvim-lua/plenary.nvim" },
+      cmd = "VectorCode", -- if you're lazy-loading VectorCode
+   },
+   {
       "olimorris/codecompanion.nvim",
       dependencies = {
          "nvim-lua/plenary.nvim",
@@ -310,6 +316,8 @@ local plugins = {
             "stevearc/dressing.nvim", -- Optional: Improves the default Neovim UI
             opts = {},
          },
+         "ravitemer/codecompanion-history.nvim",
+         "Davidyz/VectorCode",
       },
       config = function()
          require "configs.codecompanion"
@@ -467,9 +475,9 @@ local plugins = {
    {
       "nvim-treesitter/nvim-treesitter-context",
       event = "User FilePost",
-      config = function() 
+      config = function()
          require "configs.nvim-treesitter-context"
-      end
+      end,
    },
 }
 
