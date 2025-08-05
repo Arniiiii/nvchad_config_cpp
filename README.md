@@ -88,10 +88,11 @@ In general, it's great to use.
         - [x] Toggle breakpoint, `<F5>`, voilà 
     - [ ] Some floating window key map I have but there's no way to close them?
     - [ ] How to make the mappings for DAP-mode only?
-- [ ] Find out how to make some command like `:make nextest r` asynchronously
+- [x] Find out how to make some command like `:make nextest r` asynchronously
     - [x] Via overseer plugin: run asynchronously via `:Make ...`
-        - [ ] it failed parsing...
-    - [ ] can be extrapolated to `:Grep`, `AnyBashCommand`, but now I don't need it now
+        - [x] it failed parsing...
+            - [x] fixed. [PR is here](https://github.com/stevearc/overseer.nvim/pull/440)
+    - [ ] can be extrapolated to `:Grep`, `AnyBashCommand`, but now I don't need it
 - [x] More key bindings for some plugins
     - [x] DAP related
     - [x] [`Telescope`](https://github.com/nvim-telescope/telescope.nvim) related
