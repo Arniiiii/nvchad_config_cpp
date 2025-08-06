@@ -159,11 +159,10 @@ In general, it's great to use.
     - [x] it appeared it didn't work...
     - [x] mappings:
         - [x] `ys` + motion that selects i.e. `ib` (inside of brackets `[({})]` ) + a symbol to wrap
-        - [x] `cs` + ... + ... = change surrounding
+        - [x] `cs` + ... + ... = change surrounding i.e. `cs'"` = change from `'` to `"` surroundings
         - [x] `ds` + bracket = delete wrapping with the bracket
         - [x] `cst` + i.e. `h1` + `<CR>` = change HTML tags (i.e. was `<b>smth</b>`, then `<h1>smth</h1>`)
         - [x] `dsf` = delete surrounding function call (i.e. was `foo(bar)`, then `bar`)
-        - [x] `cs'"` = change from `'` to `"` surroundings
 - [ ] Refactor `mappings.lua` to different files, maybe
 - [ ] Try either fix usage `nvim-cmp` or move to `blink-cmp`
     - [ ] if fix: make it keep showing function signature while I'm passing `arguments`
