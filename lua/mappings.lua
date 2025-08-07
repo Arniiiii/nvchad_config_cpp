@@ -10,6 +10,21 @@ local function get_selection()
    return lines
 end
 
+CloseAllButCurrent = function()
+   local current_buf = vim.fn.bufnr()
+   local current_win = vim.fn.win_getid()
+   local bufs = vim.fn.getbufinfo { buflisted = 1 }
+   for _, buf in ipairs(bufs) do
+      if buf.bufnr ~= current_buf then
+         vim.cmd.bdelete { count = buf.bufnr, mods = { emsg_silent = true } }
+      end
+   end
+   vim.fn.win_gotoid(current_win)
+end
+
+vim.keymap.set("n", "<leader>X", function()
+   CloseAllButCurrent()
+end, { silent = true, desc = "Close all other buffers except current one." })
 
 -- Copy paste-edit-resorted from here: https://vim.fandom.com/wiki/Moving_through_camel_case_words#Enhanced_version
 -- " Use one of the following to define the camel characters.
