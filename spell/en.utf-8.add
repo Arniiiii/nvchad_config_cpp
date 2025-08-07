@@ -15,3 +15,13 @@ Kademlia
 P2P
 keypair
 Deserialized
+enum
+kad
+gossipsub
+bitvm2
+Velnbur
+libp2p
+GetRecordOk
+GetDHTRecord
+#x
+tx/!
