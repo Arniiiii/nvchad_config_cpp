@@ -157,7 +157,7 @@ In general, it's great to use.
     - [x] It seems there's a bundled plugin for it
       - [x] I should copy-paste-edit it here somewhere, or write something that just tries to call it from `/usr/share/gtags/gtags.vim` ( or from `/usr/local/share/gtags/gtags.vim` )
       - [x] what are the mappings?
-        - [x] I added `<leader>gt`, `<leader>gT`, `<leader>GT`
+        - [x] I added `<leader>gt` = `:GtagsCursor`, `<leader>gT` = `:Gtags`, `<leader>GT` = `:Gtagsa`
       - [x] what are the commands?
         - [x] `:Gtags`, `GtagsCursor`, `Gtagsa`, `Gozilla`
     - [ ] https://www.gnu.org/software/global/globaldoc_toc.html#Vim-using-Global
