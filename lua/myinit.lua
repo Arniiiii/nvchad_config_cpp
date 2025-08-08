@@ -22,3 +22,4 @@ end
 require "myautocommands.fbs"
 require "myautocommands.cpp"
 require "myautocommands.ctags_update"
+require "plugins.get_gtags"

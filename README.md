@@ -142,7 +142,7 @@ In general, it's great to use.
   - [x] Installed [`vimtex`](https://github.com/lervag/vimtex)...
   - [ ] Now I should learn some latex for real...
 - [ ] Add `errorformat` for `rs` file type for results of tracing that I have
-- [ ] GNU Global
+- [x] GNU Global
   - [x] How to setup?
     - [x] Assuming that your normal user is named `steve`. Then:
       - [x] `su - -c 'export GTAGSCONF=/usr/share/gtags/gtags.conf && export GTAGSLABEL=universal-ctags &&  gtags -C /usr/lib/gcc/x86_64-pc-linux-gnu/15/include/ && gtags -C /usr/include/ && gtags -C /usr/lib/rustlib/src/rust/library/ && chown steve /usr/include/{GTAGS,GPATH,GRTAGS} /usr/lib/gcc/x86_64-pc-linux-gnu/15/include/{GTAGS,GPATH,GRTAGS} /usr/lib/rustlib/src/rust/library/{GTAGS,GPATH,GRTAGS}'`
@@ -153,11 +153,13 @@ In general, it's great to use.
           - [x] specifying `dbpath` when calling `gtags` and then specifying path to it to `global` via `GTAGSLIBPATH`
             - incorrect path to tag.
           - [x] `GTAGSOBJPREFIXDIR` doesn't work for `global`
-  - [ ] How to use inside of Neovim?
+  - [x] How to use inside of Neovim?
     - [x] It seems there's a bundled plugin for it
-      - [ ] I should copy-paste-edit it here somewhere, or write something that just tries to call it from `/usr/share/gtags/gtags.vim` ( or from `/usr/local/share/gtags/gtags.vim` )
-      - [ ] what are the mappings?
-      - [ ] what are the commands?
+      - [x] I should copy-paste-edit it here somewhere, or write something that just tries to call it from `/usr/share/gtags/gtags.vim` ( or from `/usr/local/share/gtags/gtags.vim` )
+      - [x] what are the mappings?
+        - [x] I added `<leader>gt`, `<leader>gT`, `<leader>GT`
+      - [x] what are the commands?
+        - [x] `:Gtags`, `GtagsCursor`, `Gtagsa`, `Gozilla`
     - [ ] https://www.gnu.org/software/global/globaldoc_toc.html#Vim-using-Global
 - [x] Get used to use plugin [`kylechui/nvim-surround`](https://github.com/kylechui/nvim-surround)
   - [x] it appeared it didn't work...

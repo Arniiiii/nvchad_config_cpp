@@ -26,6 +26,10 @@ vim.keymap.set("n", "<leader>X", function()
    CloseAllButCurrent()
 end, { silent = true, desc = "Close all other buffers except current one." })
 
+map("n","<leader>gt", "<cmd>GtagsCursor<CR>", {silent = false, desc = "Gtags GtagsCursor"})
+map("n","<leader>gT", "<cmd>Gtags<CR>", {silent = false, desc = "Gtags Gtags"})
+map("n","<leader>GT", "<cmd>Gtagsa<CR>", {silent = false, desc = "Gtags Gtagsa (append to current quickfix window)"})
+
 -- Copy paste-edit-resorted from here: https://vim.fandom.com/wiki/Moving_through_camel_case_words#Enhanced_version
 -- " Use one of the following to define the camel characters.
 -- " Stop on capital letters.
@@ -36,37 +40,37 @@ map(
    "n",
    "<leader>w",
    ":<C-u>call search('\\C\\<\\<Bar>\\%(^\\<Bar>[^'.g:camelchar.']\\@<=\\)['.g:camelchar.']\\<Bar>['.g:camelchar.']\\ze\\%([^'.g:camelchar.']\\&\\>\\@!\\)\\<Bar>\\%$','W')<CR>",
-   { silent = true, desc = "" }
+   { silent = true, desc = "general next word (capital letter)" }
 )
 map(
    "n",
    "<leader>W",
    ":<C-u>call search('\\C\\<\\<Bar>\\%(^\\<Bar>[^'.g:camelchar.']\\@<=\\)['.g:camelchar.']\\<Bar>['.g:camelchar.']\\ze\\%([^'.g:camelchar.']\\&\\>\\@!\\)\\<Bar>\\%^','bW')<CR>",
-   { silent = true, desc = "" }
+   { silent = true, desc = "general next word (capital letter)" }
 )
 map(
    "i",
    "<C-Right>",
    "<C-o>:call search('\\C\\<\\<Bar>\\%(^\\<Bar>[^'.g:camelchar.']\\@<=\\)['.g:camelchar.']\\<Bar>['.g:camelchar.']\\ze\\%([^'.g:camelchar.']\\&\\>\\@!\\)\\<Bar>\\%$','W')<CR>",
-   { silent = true, desc = "" }
+   { silent = true, desc = "general next word (capital letter)" }
 )
 map(
    "i",
    "<C-Left>",
    "<C-o>:call search('\\C\\<\\<Bar>\\%(^\\<Bar>[^'.g:camelchar.']\\@<=\\)['.g:camelchar.']\\<Bar>['.g:camelchar.']\\ze\\%([^'.g:camelchar.']\\&\\>\\@!\\)\\<Bar>\\%^','bW')<CR>",
-   { silent = true, desc = "" }
+   { silent = true, desc = "general next word (capital letter)" }
 )
 map(
    "v",
    "<leader>w",
    "<Esc>`>:<C-U>call search('\\C\\<\\<Bar>\\%(^\\<Bar>[^'.g:camelchar.']\\@<=\\)['.g:camelchar.']\\<Bar>['.g:camelchar.']\\ze\\%([^'.g:camelchar.']\\&\\>\\@!\\)\\<Bar>\\%$','W')<CR>v`<o",
-   { silent = true, desc = "" }
+   { silent = true, desc = "general next word (capital letter)" }
 )
 map(
    "v",
    "<leader>W",
    ":<C-U>call search('\\C\\<\\<Bar>\\%(^\\<Bar>[^'.g:camelchar.']\\@<=\\)['.g:camelchar.']\\<Bar>['.g:camelchar.']\\ze\\%([^'.g:camelchar.']\\&\\>\\@!\\)\\<Bar>\\%^','bW')<CR>v`>o",
-   { silent = true, desc = "" }
+   { silent = true, desc = "general next word (capital letter)" }
 )
 
 map("x", "<leader>gl", function()
