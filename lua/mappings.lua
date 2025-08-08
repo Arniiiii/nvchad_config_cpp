@@ -744,7 +744,7 @@ map("n", "grr", function()
    vim.lsp.buf.references()
 end, { desc = "LSP references" })
 
-map("n", "<leader>f", function()
+map("n", "<leader>lf", function()
    vim.diagnostic.open_float { border = "rounded" }
 end, { desc = "LSP Floating diagnostic" })
 
